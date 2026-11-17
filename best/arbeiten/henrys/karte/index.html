@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Speisekarte · Henry's – Designentwurf</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=dm-serif-display:400,400i|dm-sans:400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../henrys.css">
+</head>
+<body data-page="karte" data-base="../">
+<script src="../henrys.js"></script>
+<main>
+  <div class="wrap pagehead">
+    <p class="crumbs"><a href="../">Start</a> / Speisekarte</p>
+    <span class="badge">Beispielkarte</span>
+    <h1 class="big" style="margin-top:4px">Was darf's <em>sein?</em></h1>
+    <p class="lead">So könnte die Karte online aussehen: auf dem Handy gut lesbar, mit Suche und Filter – und vom Café jederzeit änderbar.</p>
+  </div>
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <div class="karte">
+        <div class="ktools">
+          <label class="search" id="searchBox"><svg aria-hidden="true"><use href="#i-search"/></svg><span style="position:absolute;left:-9999px">In der Karte suchen</span><input type="search" id="q" placeholder="Suchen, z. B. Kuchen oder Ei" autocomplete="off"></label>
+          <label class="toggle" id="vegBox"><input type="checkbox" id="vegOnly"> Nur vegetarisch</label>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Kategorien" id="tabs"></div>
+        <p class="count" id="count" aria-live="polite"></p>
+        <div id="panel" role="tabpanel" tabindex="0"><div class="items" id="items"></div></div>
+        <p class="knote">Beispielkarte zur Veranschaulichung – keine Speisen, Getränke oder Preise von Henry's. Die echte Karte trägt das Café selbst ein.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="dish" id="dish" aria-labelledby="dishName">
+  <div class="dh"><button class="x" id="dishX" aria-label="Schließen">×</button><div class="ic" id="dishIc"></div><span class="cat" id="dishCat"></span><h3 id="dishName"></h3></div>
+  <div class="db"><p id="dishDesc"></p><p class="hint">Beispiel zur Veranschaulichung – kein tatsächliches Angebot von Henry's. Zutaten, Allergene und Preise bitte im Café erfragen.</p></div>
+</dialog>
+
+<script>
+const KARTE = [
+  { id: 'kaffee', label: 'Kaffee & Tee', icon: 'i-cup', items: [
+    ['Espresso', 'kurz und kräftig', 1], ['Cappuccino', 'mit Milchschaum', 1], ['Latte Macchiato', 'mild, in drei Schichten', 1],
+    ['Flat White', 'doppelter Espresso, wenig Milch', 1], ['Tee-Auswahl', 'schwarz, grün oder Kräuter', 1], ['Heiße Schokolade', 'mit oder ohne Sahne', 1] ] },
+  { id: 'fruehstueck', label: 'Frühstück', icon: 'i-sun', items: [
+    ['Kleines Frühstück', 'Brötchen, Butter, Konfitüre', 1], ['Herzhaftes Frühstück', 'Brötchen, Käse, Aufschnitt, Ei', 0],
+    ['Rührei', 'auf geröstetem Brot', 1], ['Joghurt mit Früchten', 'und Granola', 1], ['Croissant', 'frisch aufgebacken', 1] ] },
+  { id: 'bistro', label: 'Bistro', icon: 'i-plate', items: [
+    ['Tagessuppe', 'mit Brot', 1], ['Belegtes Baguette', 'wechselnde Beläge', 0], ['Salat der Saison', 'mit Hausdressing', 1],
+    ['Flammkuchen', 'klassisch mit Speck und Zwiebeln', 0], ['Quiche', 'mit Gemüse und Ei', 1], ['Toast Hawaii', 'ein Klassiker', 0] ] },
+  { id: 'kuchen', label: 'Kuchen & Süßes', icon: 'i-cake', items: [
+    ['Käsekuchen', 'cremig, mit Mürbeteig', 1], ['Apfelkuchen', 'mit Sahne', 1], ['Schokoladenkuchen', 'saftig', 1], ['Waffel', 'mit Puderzucker oder Kirschen', 1] ] },
+  { id: 'kalt', label: 'Kalte Getränke', icon: 'i-glass', items: [
+    ['Hausgemachte Limonade', 'saisonal', 1], ['Saftschorle', 'Apfel oder Rhabarber', 1], ['Eistee', 'mit Zitrone', 1], ['Mineralwasser', 'still oder sprudelnd', 1] ] }
+];
+const tabs = document.getElementById('tabs'), itemsEl = document.getElementById('items'), veg = document.getElementById('vegOnly'), q = document.getElementById('q'), count = document.getElementById('count');
+let active = 0;
+tabs.innerHTML = KARTE.map((c, i) => `<button class="tab" role="tab" id="tab-${c.id}" aria-controls="panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-i="${i}">${c.label}</button>`).join('');
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+function render() {
+  const term = norm(q.value.trim());
+  let list;
+  if (term) { // Suche über alle Kategorien
+    list = KARTE.flatMap(c => c.items.map(it => ({ it, c }))).filter(({ it }) => norm(it[0] + ' ' + it[1]).includes(term));
+    tabs.style.opacity = .4;
+  } else {
+    list = KARTE[active].items.map(it => ({ it, c: KARTE[active] }));
+    tabs.style.opacity = 1;
+  }
+  if (veg.checked) list = list.filter(({ it }) => it[2]);
+  itemsEl.innerHTML = list.length ? list.map(({ it: [n, d, v], c }) =>
+    `<button type="button" class="item" data-c="${c.id}" data-n="${n}"><span class="ic"><svg aria-hidden="true"><use href="#${c.icon}"/></svg></span><div><h3>${n}${v ? '<span class="veg">veg.</span>' : ''}</h3><p>${d}${term ? ' · ' + c.label : ''}</p></div><span class="more">Details</span></button>`).join('')
+    : '<p class="empty">Keine passenden Einträge. Versuchen Sie einen anderen Begriff.</p>';
+  count.textContent = (term ? 'Suche: ' : '') + list.length + (list.length === 1 ? ' Eintrag' : ' Einträge');
+}
+function select(i, focus) {
+  active = i; q.value = '';
+  tabs.querySelectorAll('.tab').forEach((t, j) => { t.setAttribute('aria-selected', j === i); t.tabIndex = j === i ? 0 : -1; });
+  if (focus) tabs.children[i].focus();
+  render();
+}
+tabs.addEventListener('click', e => { const t = e.target.closest('.tab'); if (t) select(+t.dataset.i); });
+tabs.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') select((active + 1) % KARTE.length, true);
+  if (e.key === 'ArrowLeft') select((active - 1 + KARTE.length) % KARTE.length, true);
+});
+veg.addEventListener('change', render);
+q.addEventListener('input', render);
+render();
+
+const dish = document.getElementById('dish');
+itemsEl.addEventListener('click', e => {
+  const b = e.target.closest('.item'); if (!b) return;
+  const c = KARTE.find(x => x.id === b.dataset.c), it = c.items.find(x => x[0] === b.dataset.n);
+  document.getElementById('dishIc').innerHTML = `<svg aria-hidden="true"><use href="#${c.icon}"/></svg>`;
+  document.getElementById('dishCat').textContent = 'Beispielkarte · ' + c.label;
+  document.getElementById('dishName').textContent = it[0];
+  document.getElementById('dishDesc').textContent = it[1].charAt(0).toUpperCase() + it[1].slice(1) + '.' + (it[2] ? ' Als vegetarisches Beispiel markiert.' : '');
+  dish.showModal();
+});
+document.getElementById('dishX').onclick = () => dish.close();
+dish.addEventListener('click', e => { if (e.target === dish) dish.close(); });
+
+window.TOUR = [
+  { sel: '#tabs', title: 'Kategorien', text: 'Die Karte ist in Bereiche aufgeteilt – Gäste tippen auf „Frühstück" oder „Kuchen" und sehen sofort das Passende.' },
+  { sel: '#searchBox', title: 'Suche', text: 'Wer etwas Bestimmtes sucht, tippt es einfach ein – zum Beispiel „Kuchen". Die Suche geht über die ganze Karte.' },
+  { sel: '#vegBox', title: 'Vegetarisch-Filter', text: 'Ein Schalter zeigt nur vegetarische Gerichte. Genauso ginge es mit „vegan" oder „glutenfrei".' },
+  { sel: '#items', title: 'Details zu jedem Eintrag', text: 'Tippen Sie auf ein Gericht: Es öffnet sich eine Detailansicht. Dort könnten auch Allergene oder ein Foto stehen.' }
+];
+</script>
+<script src="../../../assets/tour.js"></script>
+</body>
+</html>

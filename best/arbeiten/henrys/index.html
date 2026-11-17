@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Henry's · Café & Bistro Ingelheim – Designentwurf</title>
+<meta name="description" content="Unabhängiger Designentwurf für Henry's, Café & Bistro am Marktplatz in Ingelheim. Keine offizielle Website.">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=dm-serif-display:400,400i|dm-sans:400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="henrys.css">
+</head>
+<body data-page="start" data-base="./">
+<script src="henrys.js"></script>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">Café &amp; Bistro · Ingelheim</span>
+        <h1 class="big">Henry's am <em>Marktplatz.</em></h1>
+        <p class="lead">Ein Kaffee zwischendurch, eine Kleinigkeit zum Mittag, ein Treffen mit Freunden – mitten in Ingelheim, direkt am Marktplatz.</p>
+        <div class="btns" id="heroBtns">
+          <a class="btn fill" href="karte/">Zur Speisekarte</a>
+          <a class="btn" href="besuch/">Tisch anfragen</a>
+        </div>
+      </div>
+      <div class="hero-pics">
+        <div class="hp a"><img src="../../assets/img/cafe-table.jpg" alt="Gemütlicher Gastraum eines Cafés"><span class="tag">Beispielbild</span></div>
+        <div class="hp b"><img src="../../assets/img/coffee.jpg" alt="Kaffee mit Milchschaum"><span class="tag">Beispielbild</span></div>
+        <div class="chip"><b>Marktplatz 10</b>55218 Ingelheim am Rhein</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="quick" id="quick">
+      <a href="tel:+4961328991980"><span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>Anrufen</b><small>06132 8991980</small></span></a>
+      <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Marktplatz%2010%2C%2055218%20Ingelheim%20am%20Rhein" target="_blank" rel="noopener"><span class="ico"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span><b>Route planen</b><small>Marktplatz 10, Ingelheim</small></span></a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Henry's%20Marktplatz%2010%2055218%20Ingelheim" target="_blank" rel="noopener"><span class="ico"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><span><b>Öffnungszeiten</b><small>aktuell bei Google ansehen</small></span></a>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="special" id="special">
+        <div class="im"><img src="../../assets/img/pastry.jpg" alt="Gebäck auf einem Teller" style="position:absolute;inset:0"><span class="tag" style="left:14px;bottom:14px">Beispielbild</span></div>
+        <div class="tx">
+          <span class="demo">Beispiel-Aktion</span>
+          <h2 class="serif">Diese Woche bei Henry's</h2>
+          <p>Hier kann das Café selbst eine Tagesempfehlung, ein saisonales Angebot oder eine Veranstaltung eintragen – zum Beispiel „Neu: Herbstkuchen" oder „Am Samstag Live-Musik".</p>
+          <p>Gäste sehen es sofort, wenn sie die Seite öffnen. Der Text oben ist nur ein Platzhalter.</p>
+          <div class="btns" style="margin-top:22px"><a class="btn fill" href="karte/">Zur Speisekarte</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <span class="kicker">Entdecken</span>
+      <h2 style="margin:12px 0 28px">Alles auf einen Blick.</h2>
+      <div class="teasers" id="teasers">
+        <a class="teaser" href="karte/"><div class="im"><img src="../../assets/img/coffee-pour.jpg" alt="Kaffee wird aufgegossen"><span class="tag" style="left:12px;bottom:12px">Beispielbild</span></div><div class="tx"><h3>Speisekarte</h3><p>Kaffee, Frühstück, Bistro, Kuchen – mit Suche und Vegetarisch-Filter.</p><span class="go">Ansehen →</span></div></a>
+        <a class="teaser" href="galerie/"><div class="im"><img src="../../assets/img/cafe-interior.jpg" alt="Heller Gastraum"><span class="tag" style="left:12px;bottom:12px">Beispielbild</span></div><div class="tx"><h3>Galerie</h3><p>Einblicke ins Café – zum Durchblättern und Vergrößern.</p><span class="go">Ansehen →</span></div></a>
+        <a class="teaser" href="besuch/"><div class="im"><img src="https://images.unsplash.com/photo-1494346480775-936a9f0d0877?auto=format&fit=crop&w=800&q=75" alt="Gäste am Tisch"><span class="tag" style="left:12px;bottom:12px">Beispielbild</span></div><div class="tx"><h3>Besuch &amp; Tisch</h3><p>Anfahrt, Kontakt und eine Tischanfrage zum Anrufen vorbereiten.</p><span class="go">Ansehen →</span></div></a>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+window.TOUR = [
+  { sel: '.hero h1', title: 'Der erste Eindruck', text: 'So begrüßt die Website Ihre Gäste – mit Ihrem Namen, Ihrer Adresse und einem großen Foto. Sieht auf dem Handy genauso gut aus.' },
+  { sel: '#quick', title: 'Anrufen und Route mit einem Tipp', text: 'Gäste müssen nichts abtippen: ein Tipp, und das Handy ruft an oder öffnet die Route.' },
+  { sel: '#special', title: 'Aktionen selbst eintragen', text: 'Hier stehen Tagesempfehlungen, neue Kuchen oder Veranstaltungen. Das können Sie jederzeit ändern lassen.' },
+  { sel: '#teasers', title: 'Mehrere Unterseiten', text: 'Speisekarte, Galerie und Besuch haben eigene Seiten – wie bei einer richtigen Firmen-Website. Tippen Sie einfach rein.' },
+  { sel: '#menu', title: 'Klare Navigation', text: 'Oben (auf dem Handy über das Menü-Symbol) kommt man jederzeit überall hin.' }
+];
+</script>
+<script src="../../assets/tour.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Termin · Harald's Haarwerkstatt – Designentwurf</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=bricolage-grotesque:500,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../haralds.css">
+</head>
+<body data-page="termin" data-base="../">
+<script src="../haralds.js"></script>
+<main>
+  <div class="wrap pagehead">
+    <p class="crumbs"><a href="../">Start</a> / Termin</p>
+    <h1 class="disp">Termin? <span class="slant">Kurz anrufen.</span></h1>
+  </div>
+  <section class="req" style="margin-top:20px">
+    <div class="wrap req-grid">
+      <div class="req-side">
+        <span class="label">So geht's</span>
+        <p>Ihren Termin vereinbaren Sie am einfachsten telefonisch. Damit das Gespräch schnell geht, stellen Sie hier zusammen, was Sie möchten – und rufen dann direkt an.</p>
+        <ul><li>Leistung wählen</li><li>Wunschzeit angeben</li><li>Anrufen oder E-Mail schicken</li></ul>
+      </div>
+      <div class="req-box" id="reqBox">
+        <div class="step" id="st1"><div class="step-h"><i>1</i>Was darf's sein?</div><div class="chips" id="reqSvc" role="group" aria-label="Leistungen auswählen"></div></div>
+        <div class="step" id="st2"><div class="step-h"><i>2</i>Wann passt es Ihnen?</div><div class="chips" id="reqDay" role="group" aria-label="Wunschtag"></div><div class="chips" id="reqTime" role="group" aria-label="Tageszeit" style="margin-top:8px"></div></div>
+        <div class="step"><div class="step-h"><i>3</i>Noch etwas? <span style="font-weight:400;color:var(--muted)">(optional)</span></div>
+          <input type="text" id="reqName" placeholder="Ihr Name" autocomplete="name" aria-label="Ihr Name">
+          <textarea id="reqNote" placeholder="z. B. lange Haare, Wunschfarbe, Anlass …" style="margin-top:8px" aria-label="Anmerkung"></textarea></div>
+        <div class="sheet" id="sheetBox" aria-live="polite"><b>Ihr Spickzettel fürs Telefonat</b><p id="sheet"></p></div>
+        <div class="btns" id="reqActions">
+          <a class="btn hot" href="tel:+496721921199"><svg aria-hidden="true"><use href="#i-phone"/></svg>Jetzt anrufen</a>
+          <a class="btn" id="mailBtn" href="mailto:info@haralds-haarwerkstatt.de"><svg aria-hidden="true"><use href="#i-mail"/></svg>Per E-Mail</a>
+          <button class="btn" type="button" id="copyBtn">Text kopieren</button>
+        </div>
+        <p class="small">Im Entwurf wird nichts online gesendet. „Per E-Mail" öffnet Ihr E-Mail-Programm mit vorausgefülltem Text.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const { SVC, store, MAIL } = HH;
+const DAYS = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'flexibel'], TIMES = ['vormittags', 'mittags', 'nachmittags', 'egal'];
+const st = { day: new Set(), time: null };
+const reqSvc = document.getElementById('reqSvc'), reqDay = document.getElementById('reqDay'), reqTime = document.getElementById('reqTime');
+reqSvc.innerHTML = SVC.map((s, i) => `<button class="chip" type="button" data-i="${i}" aria-pressed="false">${s[0]}</button>`).join('');
+reqDay.innerHTML = DAYS.map(d => `<button class="chip" type="button" data-v="${d}" aria-pressed="false">${d}</button>`).join('');
+reqTime.innerHTML = TIMES.map(t => `<button class="chip" type="button" data-v="${t}" aria-pressed="false">${t}</button>`).join('');
+reqSvc.onclick = e => { const b = e.target.closest('.chip'); if (!b) return; const i = +b.dataset.i, s = store.get(); store.set(s.includes(i) ? s.filter(x => x !== i) : [...s, i]); sync(); };
+reqDay.onclick = e => { const b = e.target.closest('.chip'); if (!b) return; const v = b.dataset.v;
+  if (v === 'flexibel') { const on = !st.day.has(v); st.day.clear(); if (on) st.day.add(v); } else { st.day.delete('flexibel'); st.day.has(v) ? st.day.delete(v) : st.day.add(v); } sync(); };
+reqTime.onclick = e => { const b = e.target.closest('.chip'); if (!b) return; st.time = st.time === b.dataset.v ? null : b.dataset.v; sync(); };
+['reqName', 'reqNote'].forEach(id => document.getElementById(id).addEventListener('input', sync));
+function text() {
+  const s = store.get().slice().sort().map(i => SVC[i][0]);
+  const name = document.getElementById('reqName').value.trim(), note = document.getElementById('reqNote').value.trim(), days = [...st.day];
+  let t = name ? 'Guten Tag, hier ist ' + name + '. Ich hätte gern einen Termin' : 'Guten Tag, ich hätte gern einen Termin';
+  t += s.length ? ' für: ' + s.join(', ') + '.' : '.';
+  if (days.length) t += '\nWunschtag: ' + (days[0] === 'flexibel' ? 'bin flexibel' : days.join(', ')) + (st.time && st.time !== 'egal' ? ', ' + st.time : '') + '.';
+  else if (st.time && st.time !== 'egal') t += '\nAm liebsten ' + st.time + '.';
+  if (note) t += '\nHinweis: ' + note;
+  return t;
+}
+function sync() {
+  const sel = store.get();
+  reqSvc.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', sel.includes(+b.dataset.i)));
+  reqDay.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', st.day.has(b.dataset.v)));
+  reqTime.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', st.time === b.dataset.v));
+  const t = text();
+  document.getElementById('sheet').textContent = t;
+  document.getElementById('mailBtn').href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Terminanfrage') + '&body=' + encodeURIComponent(t + '\n\nViele Grüße');
+}
+document.getElementById('copyBtn').onclick = () => copyText(text(), 'Text kopiert');
+sync();
+window.TOUR = [
+  { sel: '#st1', title: 'Leistung wählen', text: 'Was auf der Leistungs-Seite ausgewählt wurde, ist hier schon markiert. Man kann aber auch direkt hier tippen.' },
+  { sel: '#st2', title: 'Wunschzeit', text: 'Tag und Tageszeit antippen – ganz ohne Kalender oder Login.' },
+  { sel: '#sheetBox', title: 'Der Spickzettel', text: 'Aus der Auswahl entsteht automatisch ein kurzer Text. Damit ist das Telefonat in einer Minute erledigt.' },
+  { sel: '#reqActions', title: 'Anrufen oder E-Mail', text: 'Ein Tipp ruft den Salon an. „Per E-Mail" öffnet eine fertige Nachricht. Kein teures Buchungssystem nötig.' }
+];
+</script>
+<script src="../../../assets/tour.js"></script>
+</body>
+</html>

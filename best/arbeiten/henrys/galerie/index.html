@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Galerie · Henry's – Designentwurf</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=dm-serif-display:400,400i|dm-sans:400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../henrys.css">
+</head>
+<body data-page="galerie" data-base="../">
+<script src="../henrys.js"></script>
+<main>
+  <div class="wrap pagehead">
+    <p class="crumbs"><a href="../">Start</a> / Galerie</p>
+    <span class="badge">Beispielbilder</span>
+    <h1 class="big" style="margin-top:4px">Ein Blick <em>hinein.</em></h1>
+    <p class="lead">Hier zeigt das Café später eigene Fotos. Im Entwurf sind es Platzhalter-Bilder – sie zeigen nicht Henry's.</p>
+  </div>
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <div class="filters" data-filter-for="gal" role="group" aria-label="Galerie filtern" id="gfilter">
+        <button data-filter="all" aria-pressed="true">Alle</button><button data-filter="innen" aria-pressed="false">Café</button><button data-filter="kaffee" aria-pressed="false">Kaffee</button><button data-filter="essen" aria-pressed="false">Essen &amp; Kuchen</button>
+      </div>
+      <ul class="gallery" id="gal" data-gallery>
+        <li><button data-tag="innen" data-full="../../../assets/img/cafe-table.jpg" data-caption="Beispielbild · Gastraum"><img loading="lazy" src="../../../assets/img/cafe-table.jpg" alt="Gastraum mit Holztischen"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="kaffee" data-full="../../../assets/img/coffee.jpg" data-caption="Beispielbild · Kaffee"><img loading="lazy" src="../../../assets/img/coffee.jpg" alt="Kaffee mit Milchschaum"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="essen" data-full="../../../assets/img/pastry.jpg" data-caption="Beispielbild · Gebäck"><img loading="lazy" src="../../../assets/img/pastry.jpg" alt="Gebäck"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="innen" data-full="../../../assets/img/cafe-interior.jpg" data-caption="Beispielbild · Heller Gastraum"><img loading="lazy" src="../../../assets/img/cafe-interior.jpg" alt="Heller Gastraum"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="kaffee" data-full="../../../assets/img/coffee-pour.jpg" data-caption="Beispielbild · Aufguss"><img loading="lazy" src="../../../assets/img/coffee-pour.jpg" alt="Kaffee wird aufgegossen"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="essen" data-full="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Frühstück"><img loading="lazy" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=700&q=75" alt="Frühstückstisch"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="innen" data-full="https://images.unsplash.com/photo-1494346480775-936a9f0d0877?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Gäste"><img loading="lazy" src="https://images.unsplash.com/photo-1494346480775-936a9f0d0877?auto=format&fit=crop&w=700&q=75" alt="Gäste am Tisch"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="essen" data-full="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Käsekuchen"><img loading="lazy" src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=75" alt="Ein Stück Käsekuchen"><span class="tag">Beispielbild</span></button></li>
+        <li><button data-tag="kaffee" data-full="https://images.unsplash.com/photo-1502462041640-b3d7e50d0662?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Latte Art"><img loading="lazy" src="https://images.unsplash.com/photo-1502462041640-b3d7e50d0662?auto=format&fit=crop&w=700&q=75" alt="Latte Art"><span class="tag">Beispielbild</span></button></li>
+      </ul>
+    </div>
+  </section>
+</main>
+<script src="../../../assets/gallery.js"></script>
+<script>
+window.TOUR = [
+  { sel: '#gfilter', title: 'Fotos sortiert', text: 'Gäste können nach Café, Kaffee oder Essen filtern – so findet man schnell, was einen interessiert.' },
+  { sel: '#gal', title: 'Antippen zum Vergrößern', text: 'Ein Tipp öffnet das Foto groß. Auf dem Handy wischt man einfach weiter. Später stehen hier Ihre eigenen Fotos.' }
+];
+</script>
+<script src="../../../assets/tour.js"></script>
+</body>
+</html>

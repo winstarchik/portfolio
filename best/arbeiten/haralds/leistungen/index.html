@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Leistungen · Harald's Haarwerkstatt – Designentwurf</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=bricolage-grotesque:500,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../haralds.css">
+</head>
+<body data-page="leistungen" data-base="../">
+<script src="../haralds.js"></script>
+<main>
+  <div class="wrap pagehead">
+    <p class="crumbs"><a href="../">Start</a> / Leistungen</p>
+    <h1 class="disp">Was wir <span class="slant">machen.</span></h1>
+    <p class="lead">Wählen Sie aus, was Sie interessiert – Ihre Auswahl wird auf der Termin-Seite automatisch übernommen.</p>
+    <p class="demo-note">⚠ Demonstrationsauswahl – die tatsächlichen Leistungen stimmt der Salon ab.</p>
+  </div>
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <div class="svc-grid" id="svcGrid"></div>
+      <div class="basket" id="basket" hidden><span><b id="bCount">0</b> Leistung(en) ausgewählt</span><a class="btn hot" href="../termin/">Weiter zur Terminanfrage →</a></div>
+    </div>
+  </section>
+</main>
+<script>
+const { SVC, store } = HH;
+const grid = document.getElementById('svcGrid');
+grid.innerHTML = SVC.map((s, i) => `<article class="svc"><span class="num">0${i + 1}</span><h3>${s[0]}</h3><p>${s[1]}</p><details><summary>Mehr erfahren</summary><p>${s[2]}</p></details><button class="add" type="button" data-i="${i}" aria-pressed="false">+ Zur Anfrage</button></article>`).join('');
+function sync() {
+  const sel = store.get();
+  grid.querySelectorAll('.add').forEach(b => { const on = sel.includes(+b.dataset.i); b.setAttribute('aria-pressed', on); b.textContent = on ? '✓ In der Anfrage' : '+ Zur Anfrage'; });
+  document.getElementById('basket').hidden = !sel.length;
+  document.getElementById('bCount').textContent = sel.length;
+}
+grid.addEventListener('click', e => {
+  const b = e.target.closest('.add'); if (!b) return;
+  const i = +b.dataset.i, sel = store.get();
+  const next = sel.includes(i) ? sel.filter(x => x !== i) : [...sel, i];
+  store.set(next); sync();
+  if (next.includes(i)) say('„' + SVC[i][0] + '" zur Anfrage hinzugefügt');
+});
+sync();
+window.TOUR = [
+  { sel: '#svcGrid', title: 'Leistungen übersichtlich', text: 'Jede Leistung hat eine kurze Beschreibung und „Mehr erfahren" für Details. Die Texte schreibt der Salon – hier sind es Beispiele.' },
+  { sel: '.svc .add', title: 'Auswählen …', text: 'Mit „Zur Anfrage" merkt sich die Seite, was der Kunde möchte. Probieren Sie es aus!' },
+  { sel: '.svc details', title: '… und Details aufklappen', text: 'So bleibt die Seite kurz, und wer mehr wissen will, tippt einfach drauf.' }
+];
+</script>
+<script src="../../../assets/tour.js"></script>
+</body>
+</html>

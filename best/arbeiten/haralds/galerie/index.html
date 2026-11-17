@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Galerie · Harald's Haarwerkstatt – Designentwurf</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=bricolage-grotesque:500,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../haralds.css">
+</head>
+<body data-page="galerie" data-base="../">
+<script src="../haralds.js"></script>
+<main>
+  <div class="wrap pagehead">
+    <p class="crumbs"><a href="../">Start</a> / Galerie</p>
+    <h1 class="disp">Ein&shy;drücke<span class="slant" style="font-size:.5em;vertical-align:middle;margin-left:.3em">Beispielbilder</span></h1>
+    <p class="lead">Hier zeigt der Salon später eigene Fotos. Im Entwurf sind es Platzhalter – sie zeigen weder den Salon noch Arbeiten des Teams.</p>
+  </div>
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="filters" data-filter-for="gal" role="group" aria-label="Galerie filtern" id="gfilter">
+        <button data-filter="all" aria-pressed="true">Alle</button><button data-filter="salon" aria-pressed="false">Salon</button><button data-filter="schnitt" aria-pressed="false">Schnitt</button><button data-filter="styling" aria-pressed="false">Styling</button>
+      </div>
+      <ul class="gallery" id="gal" data-gallery>
+        <li><button data-tag="salon" data-full="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Salon"><img loading="lazy" src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=600&q=75" alt="Salon mit runden Spiegeln"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="schnitt" data-full="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Haarschnitt"><img loading="lazy" src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=600&q=75" alt="Frau beim Haarschnitt"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="styling" data-full="../../../assets/img/hair-styling.jpg" data-caption="Beispielbild · Styling"><img loading="lazy" src="../../../assets/img/hair-styling.jpg" alt="Friseurin beim Styling"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="salon" data-full="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Bedienplätze"><img loading="lazy" src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=600&q=75" alt="Salonstühle vor Spiegeln"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="schnitt" data-full="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Herrenschnitt"><img loading="lazy" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=75" alt="Mann auf dem Friseurstuhl"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="styling" data-full="https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Werkzeug"><img loading="lazy" src="https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=600&q=75" alt="Bürsten, Schere und Färbepinsel"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="styling" data-full="../../../assets/img/hair-detail.jpg" data-caption="Beispielbild · Föhn"><img loading="lazy" src="../../../assets/img/hair-detail.jpg" alt="Frau mit Föhn"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="salon" data-full="../../../assets/img/salon.jpg" data-caption="Beispielbild · Salon"><img loading="lazy" src="../../../assets/img/salon.jpg" alt="Heller Friseursalon"><span class="bb">Beispielbild</span></button></li>
+      </ul>
+    </div>
+  </section>
+</main>
+<script src="../../../assets/gallery.js"></script>
+<script>
+window.TOUR = [
+  { sel: '#gfilter', title: 'Nach Themen sortiert', text: 'Kunden filtern nach Salon, Schnitt oder Styling und sehen sofort, was sie interessiert.' },
+  { sel: '#gal', title: 'Groß ansehen', text: 'Ein Tipp öffnet das Foto im Vollbild, auf dem Handy wischt man weiter. Später stehen hier Fotos aus dem Salon.' }
+];
+</script>
+<script src="../../../assets/tour.js"></script>
+</body>
+</html>

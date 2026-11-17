@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gutschein · Harald's Haarwerkstatt – Designentwurf</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=bricolage-grotesque:500,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../haralds.css">
+</head>
+<body data-page="gutschein" data-base="../">
+<script src="../haralds.js"></script>
+<main>
+  <div class="wrap pagehead">
+    <p class="crumbs"><a href="../">Start</a> / Gutschein</p>
+    <h1 class="disp">Schenk <span class="slant">gute Haare.</span></h1>
+    <p class="lead">Gutschein gestalten, Vorschau ansehen – und dann im Salon anfragen. So einfach könnte es für Kunden sein.</p>
+    <p class="demo-note">⚠ Demonstration – ob und welche Gutscheine der Salon anbietet, bitte direkt im Salon erfragen.</p>
+  </div>
+  <section style="padding-top:20px">
+    <div class="wrap gs-grid">
+      <div class="gs-form" id="gsForm">
+        <label class="l">Design</label>
+        <div class="chips" id="gDesign" role="group" aria-label="Design wählen">
+          <button class="chip" type="button" data-v="t-sun" aria-pressed="true">Sonne</button><button class="chip" type="button" data-v="t-hot" aria-pressed="false">Feuer</button><button class="chip" type="button" data-v="t-ink" aria-pressed="false">Nacht</button>
+        </div>
+        <label class="l">Anlass</label>
+        <div class="chips" id="gKind" role="group" aria-label="Anlass wählen">
+          <button class="chip" type="button" aria-pressed="true">Geburtstag</button><button class="chip" type="button" aria-pressed="false">Danke</button><button class="chip" type="button" aria-pressed="false">Weihnachten</button><button class="chip" type="button" aria-pressed="false">Einfach so</button>
+        </div>
+        <label class="l">Gutschein für</label>
+        <div class="chips" id="gWhat" role="group" aria-label="Art des Gutscheins">
+          <button class="chip" type="button" data-v="wert" aria-pressed="true">Wunschbetrag</button><button class="chip" type="button" data-v="leistung" aria-pressed="false">Eine Leistung</button>
+        </div>
+        <div id="gValBox" style="margin-top:10px"><input type="text" id="gVal" inputmode="numeric" value="50" aria-label="Betrag in Euro" style="max-width:160px"> <span style="font-weight:700">€</span> <span style="color:var(--muted);font-size:13px">(frei wählbar, nur Beispiel)</span></div>
+        <div id="gSvcBox" hidden style="margin-top:10px"><select id="gSvc" aria-label="Leistung wählen"></select></div>
+        <label class="l" for="gTo">Für</label><input type="text" id="gTo" placeholder="z. B. Lisa" maxlength="30">
+        <label class="l" for="gFrom">Von</label><input type="text" id="gFrom" placeholder="z. B. Max" maxlength="30">
+        <label class="l" for="gMsg">Persönliche Nachricht</label><textarea id="gMsg" maxlength="90" placeholder="z. B. Gönn dir was Schönes!"></textarea>
+      </div>
+      <div>
+        <div class="voucher t-sun" id="voucher" aria-live="polite">
+          <span class="stripe" aria-hidden="true"></span>
+          <div class="vt"><span class="brand">Harald's<small>Haarwerkstatt · Bingen</small></span><span class="kind" id="vKind">Geburtstag</span></div>
+          <div><div class="val" id="vVal">50 €</div><div class="msg" id="vMsg">Gönn dir was Schönes!</div></div>
+          <div class="who" id="vWho">Für Lisa · von Max</div>
+        </div>
+        <div class="btns" style="margin-top:40px" id="gActions">
+          <a class="btn hot" href="tel:+496721921199"><svg aria-hidden="true"><use href="#i-phone"/></svg>Im Salon anfragen</a>
+          <a class="btn" id="gMail" href="mailto:info@haralds-haarwerkstatt.de"><svg aria-hidden="true"><use href="#i-mail"/></svg>Per E-Mail</a>
+        </div>
+        <p class="small">Vorschau zur Veranschaulichung. Es wird nichts verkauft, bezahlt oder versendet.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const { SVC, MAIL } = HH;
+const v = document.getElementById('voucher');
+document.getElementById('gSvc').innerHTML = SVC.map(s => `<option>${s[0]}</option>`).join('');
+function group(id, cb) { const g = document.getElementById(id); g.addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; g.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === b)); cb(b); upd(); }); }
+group('gDesign', b => { v.className = 'voucher ' + b.dataset.v; });
+group('gKind', () => {});
+group('gWhat', b => { document.getElementById('gValBox').hidden = b.dataset.v !== 'wert'; document.getElementById('gSvcBox').hidden = b.dataset.v === 'wert'; });
+['gVal', 'gSvc', 'gTo', 'gFrom', 'gMsg'].forEach(id => document.getElementById(id).addEventListener('input', upd));
+const val = () => {
+  if (!document.getElementById('gSvcBox').hidden) return document.getElementById('gSvc').value;
+  const n = parseInt(document.getElementById('gVal').value.replace(/\D/g, ''), 10);
+  return (n > 0 ? Math.min(n, 999) : 0) + ' €';
+};
+function upd() {
+  const kind = document.querySelector('#gKind [aria-pressed="true"]').textContent;
+  const to = document.getElementById('gTo').value.trim() || 'Lisa', from = document.getElementById('gFrom').value.trim() || 'Max';
+  const msg = document.getElementById('gMsg').value.trim() || 'Gönn dir was Schönes!';
+  document.getElementById('vKind').textContent = kind;
+  const vv = val(); const el = document.getElementById('vVal');
+  el.textContent = vv; el.style.fontSize = vv.length > 10 ? 'clamp(28px,4vw,42px)' : '';
+  document.getElementById('vMsg').textContent = msg;
+  document.getElementById('vWho').textContent = 'Für ' + to + ' · von ' + from;
+  const body = 'Guten Tag,\n\nich interessiere mich für einen Gutschein:\nAnlass: ' + kind + '\nGutschein über: ' + vv + '\nFür: ' + to + ' – von: ' + from + '\nNachricht: ' + msg + '\n\nViele Grüße';
+  document.getElementById('gMail').href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Gutschein-Anfrage') + '&body=' + encodeURIComponent(body);
+}
+upd();
+window.TOUR = [
+  { sel: '#gsForm', title: 'Gutschein gestalten', text: 'Kunden wählen Design, Anlass und Betrag oder eine Leistung – und schreiben eine persönliche Nachricht.' },
+  { sel: '#voucher', title: 'Live-Vorschau', text: 'Der Gutschein verändert sich sofort mit. Ein schönes Extra, das Kunden gern benutzen – besonders vor Weihnachten.' },
+  { sel: '#gActions', title: 'Anfrage an den Salon', text: 'Anrufen oder eine fertige E-Mail schicken. Später ginge auch ein echter Online-Verkauf – wenn der Salon das möchte.' }
+];
+</script>
+<script src="../../../assets/tour.js"></script>
+</body>
+</html>
