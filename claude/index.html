@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webseiten für lokale Betriebe</title>
+<meta name="description" content="Webseiten für Cafés, Friseure und Betriebe vor Ort – gut auf dem Handy, schnell gefunden, einfach zu kontaktieren.">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=inter-tight:400,500,600,700,800|jetbrains-mono:500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f6f2;--paper:#fff;--ink:#16181d;--muted:#62656d;--line:#e4e2db;--blue:#3a5bff;--blue-soft:#e9edff;--dark:#101216}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter Tight",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(247,246,242,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:17px;display:flex;align-items:center;gap:10px}
+.brand i{width:12px;height:12px;border-radius:3px;background:var(--blue);display:inline-block;transform:rotate(45deg)}
+nav.main{display:flex;gap:24px;font-size:15px;font-weight:500}
+nav.main a{text-decoration:none;color:var(--muted)}
+nav.main a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer}
+.btn.light{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.blue{background:var(--blue);border-color:var(--blue)}
+.btn svg{width:18px;height:18px}
+@media(max-width:820px){nav.main{display:none}}
+
+/* Hero */
+.hero{padding:64px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero .mono{color:var(--blue)}
+.hero h1{font-size:clamp(44px,6.6vw,86px);line-height:.98;letter-spacing:-.045em;font-weight:800;margin:16px 0 22px}
+.hero h1 span{color:var(--blue)}
+.hero p{font-size:19px;color:var(--muted);max-width:31em;margin-bottom:30px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.showcase{display:flex;flex-direction:column;align-items:center;gap:16px}
+.phone{width:min(300px,78vw);background:#0d0e11;border-radius:44px;padding:11px;box-shadow:0 40px 80px rgba(16,18,22,.22),0 0 0 1px #2a2c33 inset;position:relative}
+.phone:before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:84px;height:22px;background:#0d0e11;border-radius:999px;z-index:2}
+.screen{border-radius:34px;overflow:hidden;aspect-ratio:390/844;position:relative;background:#e9e8e3}
+.screen iframe{position:absolute;top:0;left:0;border:0;width:390px;height:844px;transform-origin:0 0}
+.switch{display:inline-flex;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
+.switch button{border:0;background:none;padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer;color:var(--muted)}
+.switch button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.show-note{font-size:13px;color:var(--muted);text-align:center}
+.show-note a{color:var(--blue);font-weight:600}
+@media(max-width:900px){.hero{padding:40px 0 60px}.hero-grid{grid-template-columns:1fr;gap:44px}}
+
+section{padding:90px 0}
+.sec-head{max-width:720px;margin-bottom:40px}
+.sec-head .mono{color:var(--blue)}
+h2{font-size:clamp(34px,4.6vw,56px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:12px 0 14px}
+.sec-head p{color:var(--muted);font-size:17px}
+
+/* Was ich baue */
+.build{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.bcard{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.bcard .ico{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center}
+.bcard .ico svg{width:22px;height:22px}
+.bcard h3{font-size:19px;letter-spacing:-.01em}
+.bcard p{color:var(--muted);font-size:15px}
+@media(max-width:980px){.build{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.build{grid-template-columns:1fr}}
+
+/* Nutzen */
+.benefit{background:var(--dark);color:#e9eaee;border-radius:32px;padding:64px}
+.benefit h2{color:#fff}
+.benefit .sec-head p{color:#9a9eaa}
+.blist{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2a2d35;border:1px solid #2a2d35;border-radius:20px;overflow:hidden}
+.bl{background:var(--dark);padding:28px}
+.bl .mono{color:#8ea1ff}
+.bl h3{font-size:19px;margin:10px 0 6px;color:#fff}
+.bl p{color:#a3a7b2;font-size:15px}
+@media(max-width:900px){.benefit{padding:36px 22px;border-radius:24px}.blist{grid-template-columns:1fr}}
+
+/* Beispiele */
+.disclaimer{display:flex;gap:12px;align-items:flex-start;background:var(--blue-soft);border-radius:14px;padding:14px 18px;color:#2a3a8f;font-size:15px;margin-bottom:28px}
+.disclaimer svg{flex:0 0 20px;height:20px;margin-top:2px}
+.ex{display:grid;grid-template-columns:1.25fr 1fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;margin-bottom:22px}
+.ex-prev{position:relative;background:#e9e7e1;min-height:420px;overflow:hidden}
+.ex-prev .desk{position:absolute;left:6%;top:9%;width:86%;aspect-ratio:16/10;border-radius:10px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.18);background:#fff}
+.ex-prev .mob{position:absolute;right:5%;bottom:-8%;width:22%;aspect-ratio:390/844;border-radius:18px;overflow:hidden;border:6px solid #0d0e11;box-shadow:0 20px 40px rgba(0,0,0,.25);background:#fff}
+.ex-prev iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;pointer-events:none}
+.ex-info{padding:38px;display:flex;flex-direction:column;gap:12px}
+.ex-info .mono{color:var(--muted)}
+.ex-info h3{font-size:34px;letter-spacing:-.03em;line-height:1.05}
+.ex-info p{color:var(--muted)}
+.ex-info ul{list-style:none;display:grid;gap:8px;margin:6px 0 10px;font-size:15px}
+.ex-info li{display:flex;gap:10px}
+.ex-info li:before{content:"";flex:0 0 8px;height:8px;border-radius:2px;background:var(--blue);margin-top:8px;transform:rotate(45deg)}
+.ex-info .btn{align-self:flex-start;margin-top:auto}
+@media(max-width:900px){.ex{grid-template-columns:1fr}.ex-prev{min-height:0;aspect-ratio:4/3}.ex-info{padding:26px}}
+
+/* Ablauf */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.st{border-top:2px solid var(--ink);padding-top:18px}
+.st .mono{color:var(--blue)}
+.st h3{font-size:20px;margin:6px 0 6px;letter-spacing:-.01em}
+.st p{color:var(--muted);font-size:15px}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr;row-gap:30px}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:820px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-weight:700;font-size:18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--blue);transition:transform .2s}
+.faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 22px;max-width:40em}
+
+/* Kontakt */
+.contact{background:var(--blue);color:#fff;border-radius:32px;padding:64px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.contact h2{color:#fff}
+.contact p{color:#dfe4ff;font-size:17px}
+.clinks{display:grid;gap:10px}
+.clink{display:flex;align-items:center;gap:14px;background:#fff;color:var(--ink);text-decoration:none;padding:16px 18px;border-radius:16px;font-weight:700}
+.clink .ic{width:40px;height:40px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;flex:0 0 40px}
+.clink .ic svg{width:20px;height:20px}
+.clink small{display:block;font-weight:500;color:var(--muted);word-break:break-word}
+.inperson{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:22px}
+.inperson b{display:block;font-size:18px;margin-bottom:4px}
+@media(max-width:900px){.contact{grid-template-columns:1fr;padding:36px 22px;border-radius:24px}}
+
+footer{padding:36px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 9h10M7 13h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m22 6-10 7L2 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><i aria-hidden="true"></i><span id="brandName">Webseiten für lokale Betriebe</span></a>
+    <nav class="main" aria-label="Hauptnavigation"><a href="#angebot">Angebot</a><a href="#beispiele">Beispiele</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="btn" href="#beispiele">Beispiele</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="mono">Webdesign für Cafés, Salons &amp; Läden vor Ort</span>
+        <h1>Ihr Betrieb – <span>auf jedem Handy</span> gut aufgehoben.</h1>
+        <p>Ich gestalte Webseiten für kleine Betriebe in der Region: übersichtlich, schnell und so gebaut, dass Gäste und Kunden mit einem Tipp anrufen, den Weg finden oder Ihre Karte ansehen können.</p>
+        <div class="btns"><a class="btn blue" href="#beispiele">Beispiele ansehen</a><a class="btn light" href="#ablauf">So läuft's ab</a></div>
+      </div>
+      <div class="showcase">
+        <div class="phone"><div class="screen" id="heroScreen"><iframe id="heroFrame" src="beispiele/henrys/" title="Vorschau des Beispiels Henry's" tabindex="-1" scrolling="no"></iframe></div></div>
+        <div class="switch" role="group" aria-label="Beispiel in der Vorschau wählen">
+          <button type="button" data-src="beispiele/henrys/" aria-pressed="true">Café</button>
+          <button type="button" data-src="beispiele/haralds/" aria-pressed="false">Friseur</button>
+        </div>
+        <p class="show-note">Live-Vorschau · <a id="heroOpen" href="beispiele/henrys/">Beispiel öffnen →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="angebot" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">Was ich baue</span><h2>Webseiten, die zu Ihrem Betrieb passen.</h2><p>Keine Baukasten-Vorlage, sondern eine Seite, die zeigt, was Sie ausmacht – und die Ihre Kunden schnell zum Ziel bringt.</p></div>
+      <div class="build">
+        <div class="bcard"><span class="ico"><svg aria-hidden="true"><use href="#i-card"/></svg></span><h3>Die digitale Visitenkarte</h3><p>Eine Seite mit allem Wichtigen: wer Sie sind, was Sie anbieten, wie man Sie erreicht.</p></div>
+        <div class="bcard"><span class="ico"><svg aria-hidden="true"><use href="#i-menu"/></svg></span><h3>Karte &amp; Angebot</h3><p>Speisekarte, Leistungen oder Sortiment – übersichtlich sortiert und auf dem Handy gut lesbar.</p></div>
+        <div class="bcard"><span class="ico"><svg aria-hidden="true"><use href="#i-cal"/></svg></span><h3>Anfragen &amp; Termine</h3><p>Anrufen, Route, E-Mail mit einem Tipp – oder eine einfache Terminanfrage direkt auf der Seite.</p></div>
+        <div class="bcard"><span class="ico"><svg aria-hidden="true"><use href="#i-refresh"/></svg></span><h3>Alte Seite, neu gedacht</h3><p>Ihre bestehende Website ist in die Jahre gekommen? Ich bringe Inhalte in eine moderne Form.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="benefit">
+        <div class="sec-head"><span class="mono" style="color:#8ea1ff">Was es Ihnen bringt</span><h2>Gefunden werden. Verstanden werden. Angerufen werden.</h2><p>Viele Gäste und Kunden schauen zuerst auf dem Handy nach, bevor sie vorbeikommen. Eine gute Seite beantwortet ihre Fragen sofort.</p></div>
+        <div class="blist">
+          <div class="bl"><span class="mono">01</span><h3>Schnell erreichbar</h3><p>Telefonnummer, Adresse und Route sind auf dem Handy mit einem Tipp nutzbar.</p></div>
+          <div class="bl"><span class="mono">02</span><h3>Auf dem Handy gemacht</h3><p>Jede Seite wird zuerst für kleine Bildschirme gestaltet – und sieht auch am Computer gut aus.</p></div>
+          <div class="bl"><span class="mono">03</span><h3>Ihr Charakter</h3><p>Ein Café fühlt sich anders an als ein Friseursalon. Die Seite soll nach Ihnen aussehen, nicht nach Vorlage.</p></div>
+          <div class="bl"><span class="mono">04</span><h3>Klare Informationen</h3><p>Angebot, Karte oder Leistungen so aufbereitet, dass man nicht lange suchen muss.</p></div>
+          <div class="bl"><span class="mono">05</span><h3>Eigene Adresse im Netz</h3><p>Ein Ort, der Ihnen gehört – unabhängig von sozialen Netzwerken und Bewertungsportalen.</p></div>
+          <div class="bl"><span class="mono">06</span><h3>Persönlich abgestimmt</h3><p>Wir sprechen direkt miteinander – vor Ort, am Telefon oder per Nachricht.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beispiele">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">Beispiele</span><h2>Zwei Entwürfe für Betriebe aus der Region.</h2><p>Beide Seiten sind voll funktionsfähig – probieren Sie die Karte, die Galerie und die Terminanfrage ruhig aus.</p></div>
+      <div class="disclaimer"><svg aria-hidden="true"><use href="#i-info"/></svg><span>Die Beispiele sind <b>unabhängige, unaufgeforderte Designentwürfe</b>. Die Betriebe sind keine Kunden von mir, und es handelt sich nicht um ihre offiziellen Websites. Fotos sind Beispielbilder.</span></div>
+
+      <article class="ex">
+        <div class="ex-prev">
+          <div class="desk scale" data-w="1280"><iframe src="beispiele/henrys/" title="" tabindex="-1" scrolling="no" loading="lazy"></iframe></div>
+          <div class="mob scale" data-w="390"><iframe src="beispiele/henrys/" title="" tabindex="-1" scrolling="no" loading="lazy"></iframe></div>
+        </div>
+        <div class="ex-info">
+          <span class="mono">Café &amp; Bistro · Ingelheim am Rhein</span>
+          <h3>Henry's</h3>
+          <p>Ein Entwurf für ein Café am Marktplatz – warm, einladend und darauf ausgelegt, dass Gäste schnell sehen, was es gibt und wie sie hinkommen.</p>
+          <ul><li>Beispielkarte mit Kategorien und Vegetarisch-Filter</li><li>Galerie mit Vollbildansicht</li><li>Anrufen, Route und Adresse kopieren mit einem Tipp</li></ul>
+          <a class="btn" href="beispiele/henrys/">Entwurf öffnen →</a>
+        </div>
+      </article>
+
+      <article class="ex">
+        <div class="ex-prev">
+          <div class="desk scale" data-w="1280"><iframe src="beispiele/haralds/" title="" tabindex="-1" scrolling="no" loading="lazy"></iframe></div>
+          <div class="mob scale" data-w="390"><iframe src="beispiele/haralds/" title="" tabindex="-1" scrolling="no" loading="lazy"></iframe></div>
+        </div>
+        <div class="ex-info">
+          <span class="mono">Friseursalon · Bingen am Rhein</span>
+          <h3>Harald's Haarwerkstatt</h3>
+          <p>Ein Salon, der sich selbst „ganz schön schräg" nennt – also ein Entwurf mit Ecken und Kanten statt Standard-Friseurseite.</p>
+          <ul><li>Leistungen auswählen und in die Anfrage übernehmen</li><li>Termin-Spickzettel, Anruf- und E-Mail-Knopf</li><li>Galerie mit Filter und Vollbildansicht</li></ul>
+          <a class="btn" href="beispiele/haralds/">Entwurf öffnen →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="ablauf" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">Ablauf</span><h2>So arbeiten wir zusammen.</h2><p>Kein Fachchinesisch, keine langen Verträge vorab. Sie sagen, was Sie brauchen – ich kümmere mich um den Rest.</p></div>
+      <div class="steps">
+        <div class="st"><span class="mono">Schritt 1</span><h3>Kennenlernen</h3><p>Wir sprechen kurz – am liebsten bei Ihnen vor Ort. Was soll die Seite können, wer soll sie sehen?</p></div>
+        <div class="st"><span class="mono">Schritt 2</span><h3>Entwurf</h3><p>Ich gestalte einen ersten Entwurf mit Ihren Inhalten, damit Sie sehen, wie es aussehen kann.</p></div>
+        <div class="st"><span class="mono">Schritt 3</span><h3>Feinschliff</h3><p>Sie sagen, was passt und was nicht. Wir passen Texte, Bilder und Details gemeinsam an.</p></div>
+        <div class="st"><span class="mono">Schritt 4</span><h3>Online</h3><p>Die Seite geht live. Wie es danach mit Änderungen und Pflege weitergeht, besprechen wir gemeinsam.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">Häufige Fragen</span><h2>Gut zu wissen.</h2></div>
+      <div class="faq">
+        <details><summary>Was kostet eine Webseite?</summary><p>Das hängt davon ab, was Ihre Seite können soll. Kosten und Umfang besprechen wir individuell – bevor irgendetwas losgeht.</p></details>
+        <details><summary>Wie lange dauert es?</summary><p>Auch das hängt vom Umfang ab und davon, wie schnell Texte und Fotos vorliegen. Den Zeitplan legen wir gemeinsam fest.</p></details>
+        <details><summary>Brauche ich technisches Wissen?</summary><p>Nein. Sie liefern Informationen und Fotos – oder wir sammeln sie gemeinsam. Um die Technik kümmere ich mich.</p></details>
+        <details><summary>Sind die Beispiele echte Kundenprojekte?</summary><p>Nein. Henry's und Harald's Haarwerkstatt sind unabhängige Designentwürfe, die zeigen sollen, was möglich ist. Es sind keine offiziellen Websites dieser Betriebe.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div><span class="mono" style="color:#cfd7ff">Kontakt</span><h2>Lust auf einen Entwurf für Ihren Betrieb?</h2><p id="contactLead">Sprechen Sie mich einfach an – ich zeige Ihnen gern persönlich, was für Ihren Betrieb möglich ist.</p></div>
+        <div class="clinks" id="clinks">
+          <a class="clink" id="cMail" hidden><span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><span>E-Mail schreiben<small id="cMailT"></small></span></a>
+          <a class="clink" id="cPhone" hidden><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span>Anrufen<small id="cPhoneT"></small></span></a>
+          <a class="clink" id="cWa" hidden target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span>WhatsApp<small>Nachricht schreiben</small></span></a>
+          <div class="inperson" id="cPerson"><b>Am liebsten persönlich</b>Ich komme bei Ihnen vorbei und zeige Ihnen die Beispiele direkt auf dem Handy.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span id="footName">Webseiten für lokale Betriebe</span><span>Beispielfotos: Unsplash</span></div></footer>
+
+<script src="assets/config.js"></script>
+<script>
+/* Daten aus config.js – leere Felder bleiben verborgen */
+const C = window.PORTFOLIO || {};
+const clean = s => (s || '').trim();
+if (clean(C.name)) { document.getElementById('brandName').textContent = clean(C.name); document.getElementById('footName').textContent = '© ' + new Date().getFullYear() + ' ' + clean(C.name); document.title = clean(C.name) + ' · Webseiten für lokale Betriebe'; }
+if (clean(C.email)) { const a = document.getElementById('cMail'); a.href = 'mailto:' + clean(C.email); document.getElementById('cMailT').textContent = clean(C.email); a.hidden = false; }
+if (clean(C.phone)) { const a = document.getElementById('cPhone'); a.href = 'tel:' + clean(C.phone).replace(/[^\d+]/g, ''); document.getElementById('cPhoneT').textContent = clean(C.phone); a.hidden = false; }
+if (clean(C.whatsapp)) { const a = document.getElementById('cWa'); a.href = 'https://wa.me/' + clean(C.whatsapp).replace(/\D/g, ''); a.hidden = false; }
+
+/* Iframe-Vorschauen skalieren */
+function fit() {
+  const hs = document.getElementById('heroScreen'), hf = document.getElementById('heroFrame');
+  hf.style.transform = 'scale(' + hs.clientWidth / 390 + ')';
+  document.querySelectorAll('.scale').forEach(b => {
+    const f = b.querySelector('iframe'), w = +b.dataset.w, k = b.clientWidth / w;
+    f.style.width = w + 'px'; f.style.height = (b.clientHeight / k) + 'px'; f.style.transform = 'scale(' + k + ')';
+  });
+}
+addEventListener('resize', fit); fit();
+
+/* Umschalter in der Hero-Vorschau */
+document.querySelector('.switch').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || b.getAttribute('aria-pressed') === 'true') return;
+  document.querySelectorAll('.switch button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  document.getElementById('heroFrame').src = b.dataset.src;
+  document.getElementById('heroFrame').title = 'Vorschau: ' + b.textContent;
+  document.getElementById('heroOpen').href = b.dataset.src;
+});
+</script>
+</body>
+</html>

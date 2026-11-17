@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Harald's Haarwerkstatt · Designentwurf (keine offizielle Website)</title>
+<meta name="description" content="Unabhängiger Designentwurf für Harald's Haarwerkstatt in Bingen am Rhein. Keine offizielle Website.">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=bricolage-grotesque:500,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f3f0ea;--white:#fff;--ink:#121212;--muted:#5f5b55;--line:#dcd6cc;--hot:#ff5a1f;--sun:#ffd23f;--soft:#ffe9df}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.disp{font-family:"Bricolage Grotesque",Inter,system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.92}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+.concept{background:var(--ink);color:#e8e8e8;font-size:13px}
+.concept .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+.concept b{color:var(--sun);font-weight:600}
+.concept a{color:#fff;font-weight:600;text-decoration:none;white-space:nowrap}
+
+.top{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:14px}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo .mark{width:38px;height:38px;background:var(--hot);color:#fff;display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;transform:rotate(-8deg);border:2px solid var(--ink)}
+.logo .nm{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px;line-height:1}
+.logo .nm small{display:block;font-family:Inter;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.nav{display:flex;gap:24px;font-weight:600;font-size:15px}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--hot)}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;white-space:nowrap}
+.pill svg{width:16px;height:16px}
+@media(max-width:860px){.nav{display:none}}
+
+/* Hero */
+.hero{position:relative;padding:44px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(56px,10vw,138px)}
+.hero h1 .slant{display:inline-block;background:var(--sun);padding:0 .12em;transform:rotate(-3deg) skewX(-6deg);border:3px solid var(--ink);margin:.08em 0}
+.claim{font-size:clamp(20px,2.4vw,26px);font-weight:600;margin:22px 0 8px;max-width:22em}
+.claim-src{font-size:13px;color:var(--muted);margin-bottom:28px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 22px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid var(--ink);background:var(--white);cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn.hot{background:var(--hot);color:#fff}
+.btn svg{width:18px;height:18px}
+.hero-img{position:relative;height:540px}
+.hero-img .frame{position:absolute;inset:20px 0 0 30px;border:3px solid var(--ink);overflow:hidden;transform:rotate(3deg);background:#ccc}
+.hero-img .frame img{transform:rotate(-3deg) scale(1.12)}
+.sticker{position:absolute;background:var(--white);border:2px solid var(--ink);padding:10px 14px;font-weight:700;font-size:14px;box-shadow:3px 3px 0 var(--ink)}
+.sticker.s1{left:0;bottom:40px;transform:rotate(-6deg)}
+.sticker.s1 span{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.sticker.s2{right:-8px;top:0;transform:rotate(7deg);background:var(--sun)}
+.bb{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;transform:rotate(-3deg)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-img{height:400px}}
+
+/* Schräge Bänder */
+.band{background:var(--ink);color:var(--paper);transform:skewY(-3deg);margin:20px 0}
+.band>.wrap{transform:skewY(3deg)}
+.ticker{overflow:hidden;white-space:nowrap;padding:16px 0;background:var(--hot);color:#fff;transform:rotate(-2deg);margin:0 -20px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.ticker span{display:inline-block;animation:run 28s linear infinite;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:24px}
+@keyframes run{to{transform:translateX(-50%)}}
+.tickwrap{overflow:hidden;padding:14px 0}
+@media(max-width:480px){.pill span{display:none}.pill{padding:10px 12px}.logo .nm{font-size:16px}}
+
+section{padding:90px 0}
+.label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:2px solid currentColor;padding:4px 10px;transform:rotate(-2deg);margin-bottom:16px}
+h2{font-size:clamp(42px,6vw,80px)}
+.lead{color:var(--muted);max-width:36em;margin-top:14px;font-size:17px}
+
+/* Vorstellung */
+.about{padding:110px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.quote{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);line-height:1.15;letter-spacing:-.02em}
+.quote mark{background:var(--sun);color:var(--ink);padding:0 .1em}
+.quote-src{color:#a8a39b;font-size:13px;margin-top:14px}
+.about p.txt{color:#cfcac2;margin-bottom:14px}
+.points{display:grid;gap:12px;margin-top:22px}
+.points div{display:flex;gap:12px;align-items:flex-start;color:#e9e5de}
+.points div:before{content:"";flex:0 0 14px;height:14px;background:var(--hot);margin-top:6px;transform:rotate(45deg)}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:30px}}
+
+/* Leistungen */
+.demo-note{display:inline-flex;gap:8px;align-items:center;background:var(--soft);border:1.5px dashed var(--hot);color:#b23a0e;font-weight:600;font-size:14px;padding:8px 14px;margin-top:18px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.svc{background:var(--white);border:2px solid var(--ink);padding:24px;display:flex;flex-direction:column;gap:10px;position:relative;transition:transform .15s}
+.svc:nth-child(odd){transform:rotate(-.6deg)}
+.svc:nth-child(even){transform:rotate(.6deg)}
+.svc:hover{transform:rotate(0) translateY(-3px)}
+.svc .num{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;color:var(--hot)}
+.svc h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1.05}
+.svc p{color:var(--muted);font-size:15px}
+.svc .add{margin-top:auto;align-self:flex-start;border:2px solid var(--ink);background:var(--paper);padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer}
+.svc .add[aria-pressed="true"]{background:var(--ink);color:#fff}
+@media(max-width:900px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
+
+/* Anfrage-Assistent */
+.req{background:var(--sun);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.req-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:46px;align-items:start}
+.req-box{background:var(--white);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:28px}
+.step{margin-bottom:22px}
+.step-h{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:10px}
+.step-h i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--ink);background:var(--white);padding:8px 14px;font-weight:600;font-size:14px;cursor:pointer;border-radius:999px}
+.chip[aria-pressed="true"]{background:var(--hot);color:#fff;border-color:var(--hot)}
+input[type=text],textarea{width:100%;border:2px solid var(--ink);padding:12px 14px;font:inherit;font-size:15px;background:var(--paper)}
+textarea{resize:vertical;min-height:70px}
+.sheet{background:var(--paper);border:2px dashed var(--ink);padding:18px;margin:6px 0 18px;font-size:15px}
+.sheet b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.sheet p{white-space:pre-line}
+.req-actions{display:flex;gap:10px;flex-wrap:wrap}
+.small{font-size:13px;color:var(--muted);margin-top:14px}
+.req-side p{font-size:17px;margin-top:14px;max-width:26em}
+.req-side ul{list-style:none;margin-top:24px;display:grid;gap:10px;font-weight:600}
+.req-side li{display:flex;gap:10px}
+.req-side li:before{content:"→"}
+@media(max-width:900px){.req-grid{grid-template-columns:1fr}.req-box{padding:20px;box-shadow:5px 5px 0 var(--ink)}}
+
+/* Galerie */
+.gal-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:2px solid var(--ink);background:none;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer;border-radius:999px}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery li{list-style:none;aspect-ratio:4/5}
+.gallery li:nth-child(3n+1){transform:rotate(-1.2deg)}
+.gallery li:nth-child(3n+2){transform:rotate(1deg)}
+.gallery button{display:block;width:100%;height:100%;padding:0;border:2px solid var(--ink);overflow:hidden;cursor:zoom-in;position:relative;background:#ccc}
+.gallery button img{transition:transform .4s}
+.gallery button:hover img{transform:scale(1.06)}
+.gallery .bb{transform:none;right:8px;bottom:8px}
+.gal-note{font-size:13px;color:var(--muted)}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+/* Kontakt */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.cbox{background:var(--white);border:2px solid var(--ink);padding:24px;display:flex;flex-direction:column;gap:8px}
+.cbox h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px}
+.cbox p{color:var(--muted)}
+.cbox a.lnk{margin-top:auto;font-weight:700;color:var(--hot);text-decoration:none;word-break:break-word}
+.cbox a.lnk:hover{text-decoration:underline}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#bdb8b0;font-size:14px;padding:40px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#fff}
+.dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:none;border:2px solid var(--ink);background:var(--white);box-shadow:4px 4px 0 var(--ink)}
+.dock a{flex:1;text-align:center;padding:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px}
+.dock a:first-child{background:var(--hot);color:#fff;border-right:2px solid var(--ink)}
+.dock svg{width:18px;height:18px}
+@media(max-width:860px){.dock{display:flex}footer{padding-bottom:110px}}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:60}
+.toast.show{opacity:1}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m22 6-10 7L2 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="concept" role="note">
+  <div class="wrap">
+    <span><b>Unabhängiger Designentwurf – keine offizielle Website</b> · Konzept für Harald's Haarwerkstatt</span>
+    <a href="../../">← Zurück zum Portfolio</a>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#start"><span class="mark" aria-hidden="true">H</span><span class="nm">Harald's Haarwerkstatt<small>Friseursalon · Bingen am Rhein</small></span></a>
+    <nav class="nav" aria-label="Hauptnavigation"><a href="#salon">Salon</a><a href="#leistungen">Leistungen</a><a href="#termin">Termin</a><a href="#galerie">Galerie</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="pill" href="tel:+496721921199"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>06721 921199</span></a>
+  </div>
+</header>
+
+<main id="start">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="disp">Harald's<br><span class="slant">Haar&shy;werkstatt</span></h1>
+        <p class="claim">„… der ganz schön schräge Friseursalon!!"</p>
+        <p class="claim-src">So beschreibt sich der Salon auf seiner bisherigen Website.</p>
+        <div class="btns">
+          <a class="btn hot" href="#termin">Termin anfragen</a>
+          <a class="btn" href="tel:+496721921199"><svg aria-hidden="true"><use href="#i-phone"/></svg>Direkt anrufen</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="frame"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1100&q=80" alt="Friseurstuhl vor einer Backsteinwand"><span class="bb">Beispielbild</span></div>
+        <div class="sticker s1">Schmittstraße 53<span>55411 Bingen am Rhein</span></div>
+        <div class="sticker s2">Schräg? Gut so.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tickwrap"><div class="ticker" aria-hidden="true"><span>Schneiden · Färben · Stylen · Make-up · Schneiden · Färben · Stylen · Make-up · Schneiden · Färben · Stylen · Make-up · Schneiden · Färben · Stylen · Make-up · </span></div></div>
+
+  <div class="band" id="salon">
+    <div class="wrap about">
+      <div class="about-grid">
+        <div>
+          <span class="label" style="color:var(--sun)">Der Salon</span>
+          <p class="quote">„Bei uns wird nicht aus Laune heraus geschnitten, sondern <mark>mit Konzept gestylt.</mark>"</p>
+          <p class="quote-src">Zitat von der bisherigen Website des Salons</p>
+        </div>
+        <div>
+          <p class="txt">Hier stellt sich Harald's Haarwerkstatt in eigenen Worten vor – mitten in Bingen, mit einem Salon, der bewusst anders aussieht als der Friseur von nebenan.</p>
+          <p class="txt">Für diesen Entwurf übernehmen wir nur, was der Salon selbst öffentlich sagt. Alles Weitere – Team, Geschichte, Öffnungszeiten – kommt direkt von Harald's.</p>
+          <div class="points">
+            <div>Mitten in Bingen, Schmittstraße 53</div>
+            <div>Ein Salon, der sich selbst „schräg" nennt</div>
+            <div>Termin einfach telefonisch vereinbaren</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="leistungen">
+    <div class="wrap">
+      <span class="label">Leistungen</span>
+      <h2 class="disp">Was wir machen.</h2>
+      <p class="lead">Wählen Sie aus, was Sie interessiert – Ihre Auswahl landet direkt in der Termin-Anfrage weiter unten.</p>
+      <p class="demo-note">⚠ Demonstrationsauswahl – die tatsächlichen Leistungen stimmt der Salon ab.</p>
+      <div class="svc-grid" id="svcGrid"></div>
+    </div>
+  </section>
+
+  <section class="req" id="termin">
+    <div class="wrap req-grid">
+      <div class="req-side">
+        <span class="label">Termin</span>
+        <h2 class="disp">Termin? Kurz anrufen.</h2>
+        <p>Ihren Termin vereinbaren Sie am einfachsten telefonisch. Damit das Gespräch schnell geht, stellen Sie hier zusammen, was Sie möchten – Sie bekommen einen kleinen Spickzettel und können direkt anrufen.</p>
+        <ul><li>Leistung wählen</li><li>Wunschzeit angeben</li><li>Anrufen oder E-Mail schicken</li></ul>
+      </div>
+      <div class="req-box">
+        <div class="step">
+          <div class="step-h"><i>1</i>Was darf's sein?</div>
+          <div class="chips" id="reqSvc" role="group" aria-label="Leistungen auswählen"></div>
+        </div>
+        <div class="step">
+          <div class="step-h"><i>2</i>Wann passt es Ihnen?</div>
+          <div class="chips" id="reqDay" role="group" aria-label="Wunschtag"></div>
+          <div class="chips" id="reqTime" role="group" aria-label="Tageszeit" style="margin-top:8px"></div>
+        </div>
+        <div class="step">
+          <div class="step-h"><i>3</i>Noch etwas? <span style="font-weight:400;color:var(--muted)">(optional)</span></div>
+          <label class="sr" for="reqName" style="position:absolute;left:-9999px">Ihr Name</label>
+          <input type="text" id="reqName" placeholder="Ihr Name" autocomplete="name">
+          <label for="reqNote" style="position:absolute;left:-9999px">Anmerkung</label>
+          <textarea id="reqNote" placeholder="z. B. lange Haare, Wunschfarbe, Anlass …" style="margin-top:8px"></textarea>
+        </div>
+        <div class="sheet" aria-live="polite"><b>Ihr Spickzettel fürs Telefonat</b><p id="sheet"></p></div>
+        <div class="req-actions">
+          <a class="btn hot" href="tel:+496721921199"><svg aria-hidden="true"><use href="#i-phone"/></svg>Jetzt anrufen</a>
+          <a class="btn" id="mailBtn" href="mailto:info@haralds-haarwerkstatt.de"><svg aria-hidden="true"><use href="#i-mail"/></svg>Per E-Mail anfragen</a>
+          <button class="btn" type="button" id="copyBtn">Text kopieren</button>
+        </div>
+        <p class="small">Im Entwurf wird nichts online gesendet. „Per E-Mail anfragen" öffnet Ihr E-Mail-Programm mit vorausgefülltem Text.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <div class="wrap">
+      <div class="gal-top">
+        <div><span class="label">Galerie</span><h2 class="disp">Eindrücke.</h2><p class="gal-note" style="margin-top:10px">Beispielbilder – zeigen nicht den Salon. Antippen zum Vergrößern.</p></div>
+        <div class="filters" data-filter-for="gal" role="group" aria-label="Galerie filtern">
+          <button data-filter="all" aria-pressed="true">Alle</button><button data-filter="salon" aria-pressed="false">Salon</button><button data-filter="schnitt" aria-pressed="false">Schnitt</button><button data-filter="styling" aria-pressed="false">Styling</button>
+        </div>
+      </div>
+      <ul class="gallery" id="gal" data-gallery>
+        <li><button data-tag="salon" data-full="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Salon"><img loading="lazy" src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=600&q=75" alt="Salon mit runden Spiegeln und Backsteinwand"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="schnitt" data-full="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Haarschnitt"><img loading="lazy" src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=600&q=75" alt="Frau beim Haarschnitt"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="styling" data-full="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Föhnen"><img loading="lazy" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=600&q=75" alt="Föhnen mit Rundbürste"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="salon" data-full="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Bedienplätze"><img loading="lazy" src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=600&q=75" alt="Drei schwarze Salonstühle vor runden Spiegeln"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="schnitt" data-full="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Herrenschnitt"><img loading="lazy" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=75" alt="Mann auf dem Friseurstuhl"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="styling" data-full="https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Werkzeug"><img loading="lazy" src="https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=600&q=75" alt="Hände mit Bürsten, Schere und Färbepinsel"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="salon" data-full="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Friseurstuhl"><img loading="lazy" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=75" alt="Lederner Friseurstuhl vor Backsteinwand"><span class="bb">Beispielbild</span></button></li>
+        <li><button data-tag="styling" data-full="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1600&q=80" data-caption="Beispielbild · Föhn"><img loading="lazy" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=75" alt="Frau mit Föhn"><span class="bb">Beispielbild</span></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <span class="label">Kontakt</span>
+      <h2 class="disp">Schmittstraße 53.</h2>
+      <div class="contact-grid">
+        <div class="cbox"><h3>Adresse</h3><p>Harald's Haarwerkstatt<br>Schmittstraße 53<br>55411 Bingen am Rhein</p><a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;destination=Schmittstra%C3%9Fe%2053%2C%2055411%20Bingen%20am%20Rhein" target="_blank" rel="noopener">Route planen →</a></div>
+        <div class="cbox"><h3>Telefon</h3><p>Termin einfach telefonisch anfragen.</p><a class="lnk" href="tel:+496721921199">06721 921199</a></div>
+        <div class="cbox"><h3>E-Mail</h3><p>Für Fragen und Anfragen.</p><a class="lnk" href="mailto:info@haralds-haarwerkstatt.de">info@haralds-haarwerkstatt.de</a></div>
+      </div>
+      <p class="small" style="margin-top:20px">Öffnungszeiten werden in diesem Entwurf nicht angezeigt – sie trägt der Salon selbst ein.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:#fff">Harald's Haarwerkstatt</b> · Schmittstraße 53 · 55411 Bingen am Rhein</span>
+    <span>Unabhängiger Designentwurf – keine offizielle Website. Fotos: Beispielbilder (Unsplash). <a href="../../">Zurück zum Portfolio</a></span>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Schnellaktionen">
+  <a href="tel:+496721921199"><svg aria-hidden="true"><use href="#i-phone"/></svg>Anrufen</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Schmittstra%C3%9Fe%2053%2C%2055411%20Bingen%20am%20Rhein" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Route</a>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="../../assets/gallery.js"></script>
+<script>
+const SVC = [
+  ['Schneiden & Stylen', 'Beratung, Schnitt und Styling – für Damen und Herren.'],
+  ['Farbe & Strähnen', 'Von dezenten Akzenten bis zur kompletten Typveränderung.'],
+  ['Make-up & Beratung', 'Make-up für Anlässe oder Tipps für den Alltag.'],
+  ['Wimpern & Brauen', 'Form und Ausdruck für den Blick.'],
+  ['Hochsteckfrisuren', 'Für Hochzeiten, Feiern und besondere Tage.'],
+  ['Pflege & Beratung', 'Was Ihr Haar braucht – und was nicht.']
+];
+const DAYS = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'flexibel'];
+const TIMES = ['vormittags', 'mittags', 'nachmittags', 'egal'];
+const state = { svc: new Set(), day: new Set(), time: null };
+
+/* Leistungskarten */
+const grid = document.getElementById('svcGrid');
+grid.innerHTML = SVC.map((s, i) => `<article class="svc"><span class="num">0${i + 1}</span><h3>${s[0]}</h3><p>${s[1]}</p><button class="add" type="button" data-i="${i}" aria-pressed="false">+ Zur Anfrage</button></article>`).join('');
+grid.addEventListener('click', e => { const b = e.target.closest('.add'); if (!b) return; toggleSvc(+b.dataset.i); if (state.svc.has(+b.dataset.i)) say('„' + SVC[b.dataset.i][0] + '" zur Anfrage hinzugefügt'); });
+
+/* Chips */
+const reqSvc = document.getElementById('reqSvc'), reqDay = document.getElementById('reqDay'), reqTime = document.getElementById('reqTime');
+reqSvc.innerHTML = SVC.map((s, i) => `<button class="chip" type="button" data-i="${i}" aria-pressed="false">${s[0]}</button>`).join('');
+reqDay.innerHTML = DAYS.map(d => `<button class="chip" type="button" data-v="${d}" aria-pressed="false">${d}</button>`).join('');
+reqTime.innerHTML = TIMES.map(t => `<button class="chip" type="button" data-v="${t}" aria-pressed="false">${t}</button>`).join('');
+reqSvc.onclick = e => { const b = e.target.closest('.chip'); if (b) toggleSvc(+b.dataset.i); };
+reqDay.onclick = e => {
+  const b = e.target.closest('.chip'); if (!b) return; const v = b.dataset.v;
+  if (v === 'flexibel') { const on = !state.day.has(v); state.day.clear(); if (on) state.day.add(v); }
+  else { state.day.delete('flexibel'); state.day.has(v) ? state.day.delete(v) : state.day.add(v); }
+  sync();
+};
+reqTime.onclick = e => { const b = e.target.closest('.chip'); if (!b) return; state.time = state.time === b.dataset.v ? null : b.dataset.v; sync(); };
+['reqName', 'reqNote'].forEach(id => document.getElementById(id).addEventListener('input', sync));
+
+function toggleSvc(i) { state.svc.has(i) ? state.svc.delete(i) : state.svc.add(i); sync(); }
+function text() {
+  const s = [...state.svc].sort().map(i => SVC[i][0]);
+  const name = document.getElementById('reqName').value.trim(), note = document.getElementById('reqNote').value.trim();
+  const days = [...state.day];
+  let t = name ? 'Guten Tag, hier ist ' + name + '. Ich hätte gern einen Termin' : 'Guten Tag, ich hätte gern einen Termin';
+  t += s.length ? ' für: ' + s.join(', ') + '.' : '.';
+  if (days.length) t += '\nWunschtag: ' + (days[0] === 'flexibel' ? 'bin flexibel' : days.join(', ')) + (state.time && state.time !== 'egal' ? ', ' + state.time : '') + '.';
+  else if (state.time && state.time !== 'egal') t += '\nAm liebsten ' + state.time + '.';
+  if (note) t += '\nHinweis: ' + note;
+  return t;
+}
+function sync() {
+  grid.querySelectorAll('.add').forEach(b => { const on = state.svc.has(+b.dataset.i); b.setAttribute('aria-pressed', on); b.textContent = on ? '✓ In der Anfrage' : '+ Zur Anfrage'; });
+  reqSvc.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', state.svc.has(+b.dataset.i)));
+  reqDay.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', state.day.has(b.dataset.v)));
+  reqTime.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', state.time === b.dataset.v));
+  const t = text();
+  document.getElementById('sheet').textContent = t;
+  document.getElementById('mailBtn').href = 'mailto:info@haralds-haarwerkstatt.de?subject=' + encodeURIComponent('Terminanfrage') + '&body=' + encodeURIComponent(t + '\n\nViele Grüße');
+}
+const toast = document.getElementById('toast');
+function say(m) { toast.textContent = m; toast.classList.add('show'); clearTimeout(say.t); say.t = setTimeout(() => toast.classList.remove('show'), 2200); }
+document.getElementById('copyBtn').onclick = async () => {
+  const t = text();
+  try { await navigator.clipboard.writeText(t); say('Text kopiert'); }
+  catch (e) { const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); say('Text kopiert'); } catch (_) { say('Kopieren nicht möglich'); } a.remove(); }
+};
+sync();
+</script>
+</body>
+</html>
