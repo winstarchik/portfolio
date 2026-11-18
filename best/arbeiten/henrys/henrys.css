@@ -55,7 +55,7 @@ h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(
 .card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px}
 
 /* Seitenkopf der Unterseiten */
-.pagehead{padding:56px 0 30px}
+.pagehead{padding-top:56px;padding-bottom:30px}
 .crumbs{font-size:14px;color:var(--muted);margin-bottom:14px}
 .crumbs a{color:var(--green-2)}
 

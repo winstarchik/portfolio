@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bäckerei Kornhaus · Familienbäckerei · Ockenheim</title>
+<meta name="description" content="Bäckerei Kornhaus: Brot mit Natursauerteig, Brötchen, Brezeln und Kuchen. Brot des Tages, Vorbestellung und Filialen.">
+<meta name="theme-color" content="#3b2a1e">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=young-serif:400|source-sans-3:400,500,600,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f8f1e4;--paper2:#f1e6d2;--card:#fffaf1;--brown:#3b2a1e;--brown2:#5b412d;--wheat:#c58a35;--wheat-d:#a8732a;--ink:#2f2219;--muted:#7a6553;--line:#e5d6bd;
+  --k-bg:#fffaf1;--k-card:#f3e8d5;--k-ink:#2f2219;--k-muted:#7a6553;--k-line:#e5d6bd;--k-accent:#3b2a1e;--k-on-accent:#f8f1e4;--k-display:"Young Serif",Georgia,serif;--k-dw:400;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--wheat);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.serif{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.08}
+.lab{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--wheat-d)}
+.lab svg{width:18px;height:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:16px;transition:background .2s,color .2s}
+.btn.b{background:var(--brown);color:var(--paper)}.btn.b:hover{background:var(--brown2)}
+.btn.w{background:var(--wheat);color:#fff}.btn.w:hover{background:var(--wheat-d)}
+.btn.o{border:1.5px solid var(--brown);color:var(--brown)}.btn.o:hover{background:var(--brown);color:var(--paper)}
+.btn svg{width:18px;height:18px}
+.demo{background:#000;color:#bbb;font-size:12px;text-align:center;padding:7px 16px}
+.demo a{color:#fff;text-decoration:underline}
+
+.top{background:var(--brown);color:#eadcc5;font-size:15px}
+.top .wrap{display:flex;justify-content:center;gap:26px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap;text-align:center}
+.top b{color:#f4c27a;font-weight:600}
+@media(max-width:700px){.top .hide{display:none}}
+
+header{position:sticky;top:0;z-index:40;background:rgba(248,241,228,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:82px;gap:18px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .m{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--brown);display:grid;place-items:center;color:var(--wheat-d)}
+.logo .m svg{width:28px;height:28px}
+.logo b{display:block;font-family:"Young Serif",serif;font-weight:400;font-size:25px;line-height:1}
+.logo small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+nav.main{display:flex;gap:30px;font-weight:600}
+nav.main a{padding:5px 0;border-bottom:2px solid transparent}
+nav.main a:hover{border-color:var(--wheat)}
+header .btn{padding:12px 20px}
+@media(max-width:960px){nav.main{display:none}}
+@media(max-width:520px){header .btn{display:none}}
+
+.hero{padding:56px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(46px,5.8vw,78px);margin:16px 0 20px}
+.hero h1 em{font-style:normal;color:var(--wheat-d)}
+.hero p{font-size:19px;color:var(--muted);max-width:30em;margin-bottom:30px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.seals{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap}
+.seals div{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15.5px}
+.seals i{width:40px;height:40px;border-radius:50%;background:var(--paper2);display:grid;place-items:center;color:var(--wheat-d)}
+.seals i svg{width:20px;height:20px}
+.arch{position:relative;aspect-ratio:4/4.9;border-radius:999px 999px 18px 18px;overflow:hidden;box-shadow:0 30px 60px rgba(59,42,30,.18)}
+.arch .stamp{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:var(--paper);border-radius:999px;padding:10px 20px;font-weight:700;font-size:15px;white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.arch .stamp b{color:var(--wheat-d)}
+@media(max-width:900px){.hero{padding-top:34px}.hero .wrap{grid-template-columns:1fr;gap:40px}.arch{max-width:440px;width:100%;margin:0 auto;aspect-ratio:4/4.4}}
+
+section{padding:90px 0}
+.sh{text-align:center;max-width:720px;margin:0 auto 44px}
+.sh h2{font-size:clamp(38px,4.6vw,58px);margin-top:12px}
+.sh p{color:var(--muted);margin-top:12px}
+
+.week{background:var(--paper2)}
+.days{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px;text-align:center;position:relative}
+.day small{display:block;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:12.5px;color:var(--muted)}
+.day b{display:block;font-family:"Young Serif",serif;font-weight:400;font-size:21px;line-height:1.15;margin:10px 0 6px}
+.day span{font-size:14.5px;color:var(--muted)}
+.day.today{background:var(--brown);color:var(--paper);border-color:var(--brown)}
+.day.today small,.day.today span{color:#e5cfa8}
+.day.today::after{content:"Heute";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--wheat);color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:999px}
+@media(max-width:980px){.days{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.days{grid-template-columns:repeat(2,minmax(0,1fr))}.day{min-width:0;padding:16px 10px}.day b{font-size:17px;overflow-wrap:anywhere}}
+
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.tabs button{padding:11px 22px;border-radius:999px;border:1.5px solid var(--line);font-weight:700;color:var(--muted);background:var(--card)}
+.tabs button[aria-selected="true"]{background:var(--brown);color:var(--paper);border-color:var(--brown)}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.prod{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.prod .ph{aspect-ratio:4/3.2;overflow:hidden}
+.prod .tx{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.prod h3{font-family:"Young Serif",serif;font-weight:400;font-size:22px;line-height:1.15}
+.prod p{color:var(--muted);font-size:15px;margin-top:3px}
+.prod .ft{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px}
+.prod .pr{font-weight:700;font-size:19px}
+.prod .pr small{font-weight:500;font-size:13.5px;color:var(--muted)}
+.prod button{width:44px;height:44px;border-radius:50%;background:var(--paper2);font-size:22px;line-height:1;font-weight:600;color:var(--brown);transition:background .2s,color .2s}
+.prod button:hover,.prod button.on{background:var(--brown);color:var(--paper)}
+.prod button.on{font-size:16px;font-weight:700}
+.pnote{text-align:center;color:var(--muted);font-size:14.5px;margin-top:24px}
+@media(max-width:980px){.prods{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.prods{grid-template-columns:1fr 1fr;gap:10px}.prod h3{font-size:19px}.prod .tx{padding:12px 12px 14px}}
+
+.craft{background:var(--brown);color:#eadcc5}
+.craft .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
+.craft h2{font-size:clamp(38px,4.6vw,58px);color:var(--paper);margin:12px 0 18px}
+.craft .lab{color:#f4c27a}
+.craft p{font-size:18px;color:#d9c7aa}
+.craft ul{list-style:none;display:grid;gap:14px;margin-top:28px}
+.craft li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.craft li svg{width:24px;height:24px;color:#f4c27a;margin-top:2px}
+.craft li b{display:block;color:var(--paper);font-weight:600}
+.cpics{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:230px 230px;gap:14px}
+.cpics div{border-radius:18px;overflow:hidden}
+.cpics div:first-child{grid-row:span 2}
+@media(max-width:900px){.craft .wrap{grid-template-columns:1fr;gap:40px}.cpics{grid-template-rows:180px 180px}}
+
+.shops{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:.8fr 1.2fr}
+.shop .ph{min-height:100%}
+.shop .tx{padding:28px}
+.shop h3{font-family:"Young Serif",serif;font-weight:400;font-size:28px;line-height:1.1}
+.shop .ad{color:var(--muted);margin:6px 0 14px}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:8px}
+.status i{width:9px;height:9px;border-radius:50%;background:#4b9c5a}
+.status.closed i{background:#c7553f}
+.k-h{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.k-h:last-child{border:0}
+.k-h.today{font-weight:700;color:var(--wheat-d)}
+.k-h small{font-size:12px}
+.shop .cta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.shop .cta .btn{padding:11px 18px;font-size:15px}
+@media(max-width:980px){.shops{grid-template-columns:1fr}}
+@media(max-width:560px){.shop{grid-template-columns:1fr}.shop .ph{height:180px}}
+
+footer{background:var(--brown);color:#cdb995;padding:40px 0 120px;font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer nav{display:flex;gap:20px}
+.dock{display:none}
+@media(max-width:860px){.dock{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(248,241,228,.97);border-top:1px solid var(--line)}.dock .btn{padding:14px 10px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wheat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M12 8c-2.5-.5-3.5-2.5-3-5 2.5.5 3.5 2.5 3 5zM12 8c2.5-.5 3.5-2.5 3-5-2.5.5-3.5 2.5-3 5z"/><path d="M12 13c-2.8-.3-4-2.2-3.6-4.8 2.6.3 3.9 2.2 3.6 4.8zM12 13c2.8-.3 4-2.2 3.6-4.8-2.6.3-3.9 2.2-3.6 4.8z"/><path d="M12 18c-2.8-.3-4-2.2-3.6-4.8 2.6.3 3.9 2.2 3.6 4.8zM12 18c2.8-.3 4-2.2 3.6-4.8-2.6.3-3.9 2.2-3.6 4.8z"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.7 7-6.8C19 10 14 8 14.5 2.5 10 5 9 9 9.5 11.5 8 10.5 7.5 9 7.5 9 5.7 11 5 13.2 5 15.2 5 19.3 8 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 9.5V4a1.5 1.5 0 0 1 3 0v6M13 9.5V5a1.5 1.5 0 0 1 3 0v6M16 10V7.5a1.5 1.5 0 0 1 3 0V14a8 8 0 0 1-8 8h-.5A6.5 6.5 0 0 1 5 18l-2-4a1.5 1.5 0 0 1 2.6-1.5L7 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-call" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
+<div class="demo">Beispielprojekt · erfundene Bäckerei – zeigt, was eine Website kann · <a href="../../#arbeiten">← Zurück zum Portfolio</a></div>
+
+<div class="top"><div class="wrap"><span>Frisch aus dem Ofen ab 6 Uhr</span><span>Brot des Tages: <b id="botd">…</b></span><span class="hide">Vorbestellen per WhatsApp oder Telefon</span></div></div>
+
+<header><div class="wrap">
+  <a class="logo" href="#start"><span class="m"><svg><use href="#i-wheat"/></svg></span><span><b>Bäckerei Kornhaus</b><small>Familienbäckerei · Ockenheim</small></span></a>
+  <nav class="main" aria-label="Hauptnavigation"><a href="#woche">Brot des Tages</a><a href="#sortiment">Sortiment</a><a href="#handwerk">Handwerk</a><a href="#filialen">Filialen</a></nav>
+  <a class="btn b" href="#sortiment">Vorbestellen</a>
+</div></header>
+
+<main>
+<section class="hero" id="start">
+  <div class="wrap">
+    <div>
+      <span class="lab"><svg><use href="#i-wheat"/></svg>Familienbäckerei</span>
+      <h1 class="serif">Brot wie früher. <em>Jeden Morgen frisch.</em></h1>
+      <p>Mit Natursauerteig, Mehl aus der Region und viel Zeit gebacken – so wie es schon in der Backstube der Großeltern gemacht wurde.</p>
+      <div class="cta"><a class="btn b" href="#sortiment">Zum Sortiment</a><a class="btn o" href="#filialen">Öffnungszeiten</a></div>
+      <div class="seals">
+        <div><i><svg><use href="#i-wheat"/></svg></i>Natursauerteig</div>
+        <div><i><svg><use href="#i-hand"/></svg></i>Von Hand geformt</div>
+        <div><i><svg><use href="#i-flame"/></svg></i>Täglich frisch</div>
+      </div>
+    </div>
+    <div class="arch"><img src="img/hero.jpg" alt="Hände halten frische Brotlaibe" fetchpriority="high"><div class="stamp">Heute ab <b>6:00</b> frisch</div></div>
+  </div>
+</section>
+
+<section class="week" id="woche">
+  <div class="wrap">
+    <div class="sh"><span class="lab"><svg><use href="#i-wheat"/></svg>Brot des Tages</span><h2 class="serif">Jeden Tag ein anderes Brot</h2><p>Neben unserem festen Sortiment backen wir jeden Tag eine Spezialität – hier sehen Sie, wann es was gibt.</p></div>
+    <div class="days" id="days"></div>
+  </div>
+</section>
+
+<section id="sortiment">
+  <div class="wrap">
+    <div class="sh"><span class="lab"><svg><use href="#i-wheat"/></svg>Sortiment</span><h2 class="serif">Aus unserer Backstube</h2><p>Mit <b>+</b> auswählen und vorbestellen – zum Beispiel Brötchen fürs Sonntagsfrühstück oder Brezeln für die Feier.</p></div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="prods" id="prods"></div>
+    <p class="pnote">Beispielpreise in Euro inkl. MwSt. Das tägliche Angebot kann abweichen.</p>
+  </div>
+</section>
+
+<section class="craft" id="handwerk">
+  <div class="wrap">
+    <div class="cpics"><div><img src="img/crust.jpg" alt="Kruste eines Brotlaibs" loading="lazy"></div><div><img src="img/trays.jpg" alt="Gebäck auf Blechen" loading="lazy"></div><div><img src="img/display.jpg" alt="Brotregal im Laden" loading="lazy"></div></div>
+    <div>
+      <span class="lab"><svg><use href="#i-wheat"/></svg>Handwerk</span>
+      <h2 class="serif">Gutes Brot braucht vor allem eines: Zeit.</h2>
+      <p>Unsere Teige ruhen über Nacht. Dadurch wird das Brot aromatischer, bekömmlicher und bleibt länger frisch.</p>
+      <ul>
+        <li><svg><use href="#i-check"/></svg><p><b>Ohne Fertigmischungen</b>Jeder Teig wird bei uns selbst angesetzt.</p></li>
+        <li><svg><use href="#i-check"/></svg><p><b>Mehl aus der Region</b>Von Mühlen aus Rheinhessen und der Pfalz.</p></li>
+        <li><svg><use href="#i-check"/></svg><p><b>Am Vortag gebacken? Günstiger.</b>Brot vom Vortag gibt es zum halben Preis.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="filialen">
+  <div class="wrap">
+    <div class="sh"><span class="lab"><svg><use href="#i-wheat"/></svg>Filialen</span><h2 class="serif">Hier finden Sie uns</h2><p>Beispieladressen – ein echter Betrieb trägt hier seine Filialen ein.</p></div>
+    <div class="shops">
+      <div class="shop"><div class="ph"><img src="img/shop.jpg" alt="Verkaufsraum der Bäckerei" loading="lazy"></div><div class="tx"><h3>Stammhaus Ockenheim</h3><p class="ad">Musterstraße 1, 55437 Ockenheim</p><div class="status" id="status"><i></i><span id="statusText">…</span></div><div id="hours"></div>
+        <div class="cta"><a class="btn b" href="https://www.google.com/maps/search/?api=1&query=Ockenheim" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Route</a><a class="btn o" href="tel:+496725000003"><svg><use href="#i-call"/></svg>Anrufen</a></div></div></div>
+      <div class="shop"><div class="ph"><img src="img/basket.jpg" alt="Brotkorb" loading="lazy"></div><div class="tx"><h3>Filiale Gau-Algesheim</h3><p class="ad">Musterplatz 7, 55435 Gau-Algesheim</p><div class="status" id="status2"><i></i><span id="statusText2">…</span></div><div id="hours2"></div>
+        <div class="cta"><a class="btn b" href="https://www.google.com/maps/search/?api=1&query=Gau-Algesheim" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Route</a><a class="btn o" href="tel:+496725000004"><svg><use href="#i-call"/></svg>Anrufen</a></div></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Bäckerei Kornhaus · Demo-Seite · Fotos: Beispielbilder (Unsplash)</span><nav><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav></div></footer>
+<div class="dock"><a class="btn o" href="tel:+496725000003">Anrufen</a><a class="btn b" href="#sortiment" id="dockBtn">Vorbestellen</a></div>
+
+<script src="../../assets/order-kit.js"></script>
+<script>
+const WEEK = [['Montag','Roggenmischbrot','mit Kümmel'],['Dienstag','Dinkelvollkorn','mit Saaten'],['Mittwoch','Bauernbrot','dunkle Kruste'],['Donnerstag','Kartoffelbrot','saftig und mild'],['Freitag','Walnussbrot','mit ganzen Nüssen'],['Samstag','Weizenkruste','groß und knusprig']];
+const d = new Date().getDay();
+document.getElementById('days').innerHTML = WEEK.map(([day,b,s],i) => `<div class="day${i+1===d?' today':''}"><small>${day}</small><b>${b}</b><span>${s}</span></div>`).join('');
+document.getElementById('botd').textContent = d >= 1 && d <= 6 ? WEEK[d-1][1] : 'sonntags geschlossen';
+const P = {
+  'Brot': [['b1','Bauernbrot','1 kg · Natursauerteig',4.9,'loaves'],['b2','Dinkelvollkorn','750 g · mit Saaten',5.4,'crust'],['b3','Roggenmischbrot','1 kg · kräftig',4.6,'hero'],['b4','Weizenkruste','750 g · knusprig',3.9,'basket']],
+  'Brötchen & Brezeln': [['r1','Laugenbrezel','frisch gelaugt',0.95,'pretzel'],['r2','Kaiserbrötchen','klassisch',0.55,'trays'],['r3','Körnerbrötchen','mit Sonnenblumenkernen',0.75,'basket'],['r4','Laugenstange','mit Salz',0.9,'pretzel']],
+  'Süßes': [['s1','Buttercroissant','mit französischer Butter',1.6,'croissant'],['s2','Rosinenschnecke','mit Vanillecreme',2.2,'trays'],['s3','Streuselkuchen','Blech, pro Stück',2.4,'display'],['s4','Apfelkuchen','ganz, 12 Stücke',22,'shop']]
+};
+const items = {}; Object.values(P).flat().forEach(([id,n,dsc,p]) => items[id] = {name:n, p});
+const kit = Kit.order({
+  name:'Bäckerei Kornhaus', tel:'+496725000003', title:'Vorbestellung', greet:'ich möchte gern vorbestellen',
+  items, modes:['Ockenheim','Gau-Algesheim'], one:'Stück', many:'Stück', barButton:'Vorbestellung ansehen', dockButton:'#dockBtn', dockLabel:'Vorbestellung',
+  fields:[{k:'tag',l:'Abholtag',type:'date',half:true},{k:'zeit',l:'Uhrzeit',ph:'z. B. 8 Uhr',half:true},{k:'name',l:'Name'},{k:'hinweis',l:'Hinweis',type:'area',ph:'z. B. Brot bitte geschnitten'}],
+  intro:'Wählen Sie die Filiale, in der Sie abholen möchten.',
+  note:'Demo: Es wird nichts automatisch gesendet. Bitte bis 16 Uhr am Vortag vorbestellen.'
+});
+const cats = Object.keys(P); let cur = cats[0];
+function render(){
+  document.getElementById('tabs').innerHTML = cats.map(c => `<button role="tab" aria-selected="${c===cur}" data-c="${c}">${c}</button>`).join('');
+  document.getElementById('prods').innerHTML = P[cur].map(([id,n,dsc,p,img]) => { const q = kit.qty(id);
+    return `<article class="prod"><div class="ph"><img src="img/${img}.jpg" alt="${n}" loading="lazy"></div><div class="tx"><h3>${n}</h3><p>${dsc}</p><div class="ft"><span class="pr">${Kit.fmt(p)}</span><button class="${q?'on':''}" data-add="${id}" aria-label="${n} vorbestellen">${q?q:'+'}</button></div></div></article>`; }).join('');
+}
+document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('[data-c]'); if (b){ cur = b.dataset.c; render(); } });
+document.addEventListener('kit:change', render); render();
+Kit.hours([['Sonntag',7.5,11],['Montag',6,18],['Dienstag',6,18],['Mittwoch',6,18],['Donnerstag',6,18],['Freitag',6,18],['Samstag',6,13]], {table:'#hours', status:'#status', text:'#statusText'});
+Kit.hours([['Sonntag',null],['Montag',6.5,13],['Dienstag',6.5,18],['Mittwoch',6.5,13],['Donnerstag',6.5,18],['Freitag',6.5,18],['Samstag',6.5,12.5]], {table:'#hours2', status:'#status2', text:'#statusText2'});
+</script>
+<script>window.TOUR = [
+  {sel:'.top', title:'Brot des Tages', text:'Ganz oben steht automatisch, welches Brot es heute gibt.'},
+  {sel:'#days', title:'Wochenplan', text:'Welche Spezialität an welchem Tag – der heutige Tag ist hervorgehoben.'},
+  {sel:'#prods', title:'Vorbestellen', text:'Brot, Brötchen oder Kuchen mit + auswählen und per WhatsApp oder Anruf vorbestellen.'},
+  {sel:'#filialen .shops', title:'Filialen', text:'Jede Filiale mit eigenen Öffnungszeiten – geöffnet oder geschlossen wird automatisch angezeigt.'}
+];</script>
+<script src="../../assets/tour.js"></script>
+</body>
+</html>
