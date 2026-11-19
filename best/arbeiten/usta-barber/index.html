@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Usta Barbershop · Bingen am Rhein</title>
 <meta name="description" content="Usta Barbershop in Bingen: Haarschnitt, Fade, Bart und Nassrasur. Termin per WhatsApp anfragen oder einfach vorbeikommen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect x="7" y="7" width="50" height="50" fill="none" stroke="%23ebe5da" stroke-width="1.4"/%3E%3Crect x="11" y="11" width="42" height="42" fill="none" stroke="%23ebe5da" stroke-width=".7"/%3E%3Ctext x="32" y="44.5" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="500" fill="%23ebe5da"%3EU%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#0f0f0e">
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=bodoni-moda:500,600|manrope:400,500,600,700&display=swap" rel="stylesheet">
@@ -138,6 +139,7 @@ footer nav{display:flex;gap:20px}
 .dock{display:none}
 @media(max-width:860px){.dock{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(15,15,14,.96);border-top:1px solid var(--line-d)}.dock .btn{padding:14px 10px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.logo{display:flex;align-items:center;gap:12px;justify-self:center}.logo .lm{width:40px;height:40px;flex:0 0 40px}.logo .lw{display:block;line-height:1}.logo .lw small{display:block;font-family:Manrope,sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.42em;color:var(--stone);margin-top:6px}footer .seal{display:block}@media(max-width:900px){.logo .lw small{display:none}}
 </style>
 </head>
 <body>
@@ -150,7 +152,7 @@ footer nav{display:flex;gap:20px}
 
 <header><div class="wrap">
   <nav class="main" aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#handwerk">Handwerk</a><a href="#termin">Termin</a><a href="#besuch">Besuch</a></nav>
-  <a class="logo" href="#start">USTA</a>
+  <a class="logo" href="#start" aria-label="Usta Barbershop – Start"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><rect x="7" y="7" width="50" height="50" fill="none" stroke="#ebe5da" stroke-width="1.4"/><rect x="11" y="11" width="42" height="42" fill="none" stroke="#ebe5da" stroke-width=".7"/><text x="32" y="44.5" text-anchor="middle" font-family="'Bodoni Moda',Georgia,serif" font-size="34" font-weight="500" fill="#ebe5da">U</text></svg><span class="lw">USTA<small>BARBERSHOP</small></span></a>
   <div class="hr"><a class="tel" href="tel:+496721000001">06721 00 00 01</a><a class="btn b" href="#termin">Termin</a></div>
 </div></header>
 
@@ -232,7 +234,7 @@ footer nav{display:flex;gap:20px}
 </section>
 </main>
 
-<footer><div class="wrap"><span class="logo">USTA</span><span>© 2026 Usta Barbershop · Demo-Seite · Fotos: Beispielbilder (Unsplash)</span><nav><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav></div></footer>
+<footer><div class="wrap"><svg class="seal" viewBox="0 0 120 120" width="96" height="96" role="img" aria-label="Logo Usta"><defs><path id="ring-usta-barber" d="M60 60 m-45 0 a45 45 0 1 1 90 0 a45 45 0 1 1 -90 0"/></defs><circle cx="60" cy="60" r="57" fill="none" stroke="#ebe5da" stroke-width="1.2"/><circle cx="60" cy="60" r="36" fill="none" stroke="#ebe5da" stroke-width=".9"/><text font-family="'Bodoni Moda',Georgia,serif" font-size="9.6" font-weight="700" fill="#ebe5da" letter-spacing="1"><textPath href="#ring-usta-barber" textLength="278" lengthAdjust="spacing">BARBERSHOP · BINGEN AM RHEIN · </textPath></text><g transform="translate(37 34) scale(.72)"><text x="32" y="45" text-anchor="middle" font-family="'Bodoni Moda',Georgia,serif" font-size="40" fill="#ebe5da">U</text></g></svg><span>© 2026 Usta Barbershop · Demo-Seite · Fotos: Beispielbilder (Unsplash)</span><nav><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav></div></footer>
 <div class="dock"><a class="btn o" href="tel:+496721000001">Anrufen</a><a class="btn b" href="#leistungen" id="dockBtn">Termin anfragen</a></div>
 
 <script src="../../assets/order-kit.js?v=3"></script>

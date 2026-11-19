@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Café Röstwerk · Gau-Algesheim</title>
 <meta name="description" content="Café Röstwerk: Kaffee aus eigener Röstung, Frühstück und hausgemachte Kuchen in Gau-Algesheim.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Ccircle cx="32" cy="32" r="31" fill="%235a3824"/%3E%3Cg transform="translate%2813 13%29 scale%28.594%29"%3E%3Cellipse rx="15" ry="20.5" transform="translate%2832 32%29 rotate%2832%29" fill="%23fbf3e8"/%3E%3Cpath d="M24 16 C34 24 26 36 38 46" fill="none" stroke="%235a3824" stroke-width="3" stroke-linecap="round" transform="rotate%2832 32 32%29 translate%280 0%29"/%3E%3C/g%3E%3C/svg%3E">
 <meta name="theme-color" content="#2b1a12">
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=lora:500,600,700,500i|manrope:400,500,600,700&display=swap" rel="stylesheet">
@@ -146,6 +147,7 @@ footer nav{display:flex;gap:20px}
 .dock{display:none}
 @media(max-width:860px){.dock{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(43,26,18,.96)}.dock .btn{padding:14px 10px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.logo .cup{background:none;width:48px;height:48px}.logo .cup .lm{width:48px;height:48px}footer .seal{flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -167,7 +169,7 @@ footer nav{display:flex;gap:20px}
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#start"><span class="cup"><svg><use href="#i-cup"/></svg></span><span><b>Röstwerk</b><small>Café · Gau-Algesheim</small></span></a>
+    <a class="logo" href="#start"><span class="cup"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#5a3824"/><g transform="translate(13 13) scale(.594)"><ellipse rx="15" ry="20.5" transform="translate(32 32) rotate(32)" fill="#fbf3e8"/><path d="M24 16 C34 24 26 36 38 46" fill="none" stroke="#5a3824" stroke-width="3" stroke-linecap="round" transform="rotate(32 32 32) translate(0 0)"/></g></svg></span><span><b>Röstwerk</b><small>Café · Gau-Algesheim</small></span></a>
     <nav class="main" aria-label="Hauptnavigation"><a href="#karte">Karte</a><a href="#kuchen">Kuchen</a><a href="#ueber">Über uns</a><a href="#besuch">Besuch</a></nav>
     <a class="btn b" href="#kuchen">Kuchen vorbestellen</a>
   </div>
@@ -243,7 +245,7 @@ footer nav{display:flex;gap:20px}
 </section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Café Röstwerk · Demo-Seite · Fotos: Beispielbilder (Unsplash)</span><nav><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav></div></footer>
+<footer><div class="wrap"><svg class="seal" viewBox="0 0 120 120" width="96" height="96" role="img" aria-label="Logo Röstwerk"><defs><path id="ring-cafe-roestwerk" d="M60 60 m-45 0 a45 45 0 1 1 90 0 a45 45 0 1 1 -90 0"/></defs><circle cx="60" cy="60" r="59" fill="#5a3824"/><circle cx="60" cy="60" r="57" fill="none" stroke="#fbf3e8" stroke-width="1.2"/><circle cx="60" cy="60" r="36" fill="none" stroke="#fbf3e8" stroke-width=".9"/><text font-family="Lora,Georgia,serif" font-size="9.6" font-weight="700" fill="#fbf3e8" letter-spacing="1"><textPath href="#ring-cafe-roestwerk" textLength="278" lengthAdjust="spacing">CAFÉ &amp; RÖSTEREI · GAU-ALGESHEIM · </textPath></text><g transform="translate(37 34) scale(.72)"><ellipse rx="15" ry="20.5" transform="translate(32 32) rotate(32)" fill="#fbf3e8"/><path d="M24 16 C34 24 26 36 38 46" fill="none" stroke="#5a3824" stroke-width="3" stroke-linecap="round" transform="rotate(32 32 32) translate(0 0)"/></g></svg><span>© 2026 Café Röstwerk · Demo-Seite · Fotos: Beispielbilder (Unsplash)</span><nav><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav></div></footer>
 <div class="dock"><a class="btn l" href="tel:+496725000000">Anrufen</a><a class="btn c" href="#kuchen" id="dockBtn">Kuchen vorbestellen</a></div>
 
 <script src="../../assets/order-kit.js?v=3"></script>

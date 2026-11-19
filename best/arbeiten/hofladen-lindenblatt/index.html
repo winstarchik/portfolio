@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Lindenblatt · Hofladen &amp; Feinkost · Ockenheim</title>
 <meta name="description" content="Lindenblatt: Honig, Öle, Gemüse und Feinkost aus der Region. Online reservieren, im Laden abholen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Cpath d="M32 7 C44 15 54 27 51 39 C48.5 49 39 52 32 45.5 C25 52 15.5 49 13 39 C10 27 20 15 32 7Z" fill="%233f5a2e"/%3E%3Cpath d="M32 45 V12 M32 22 L41 17 M32 22 L23 17 M32 31 L44 26 M32 31 L20 26 M32 39 L42 36 M32 39 L22 36" stroke="%23efeee9" stroke-width="1.4" stroke-linecap="round" fill="none"/%3E%3Cpath d="M32 45.5 V58" stroke="%233f5a2e" stroke-width="2.6" stroke-linecap="round"/%3E%3C/svg%3E">
 <meta name="theme-color" content="#efeee9">
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800&display=swap" rel="stylesheet">
@@ -134,6 +135,7 @@ footer nav{display:flex;gap:20px}
 .dock{display:none}
 @media(max-width:860px){.dock{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(239,238,233,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}.dock .btn{padding:14px 10px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.logo .lm{width:34px;height:34px;flex:0 0 34px}.logo .lw{display:block;line-height:1}.logo .lw small{display:block;font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--muted);margin-top:4px}footer .seal{flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -146,7 +148,7 @@ footer nav{display:flex;gap:20px}
 <div class="demo">Beispielprojekt · erfundener Laden – zeigt, was eine Website kann · <a href="../../#arbeiten">← Zurück zum Portfolio</a></div>
 
 <header><div class="wrap">
-  <a class="logo" href="#start"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 8 6 14 7 20c1 5 5 8 9 9 4-1 8-4 9-9 1-6-2-12-9-17z" fill="#3f5a2e"/><path d="M16 9v20M16 15l-5-3M16 20l6-4M16 25l-4-2" stroke="#efeee9" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>Lindenblatt</a>
+  <a class="logo" href="#start" aria-label="Lindenblatt – Start"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 7 C44 15 54 27 51 39 C48.5 49 39 52 32 45.5 C25 52 15.5 49 13 39 C10 27 20 15 32 7Z" fill="#3f5a2e"/><path d="M32 45 V12 M32 22 L41 17 M32 22 L23 17 M32 31 L44 26 M32 31 L20 26 M32 39 L42 36 M32 39 L22 36" stroke="#efeee9" stroke-width="1.4" stroke-linecap="round" fill="none"/><path d="M32 45.5 V58" stroke="#3f5a2e" stroke-width="2.6" stroke-linecap="round"/></svg><span class="lw">Lindenblatt<small>Hofladen &amp; Feinkost</small></span></a>
   <nav class="main" aria-label="Hauptnavigation"><a href="#sortiment">Sortiment</a><a href="#so-gehts">So geht's</a><a href="#laden">Unser Laden</a></nav>
   <div class="hr"><a class="cartbtn" href="#" data-k-open aria-label="Reservierung ansehen"><svg><use href="#i-bag"/></svg><b id="cnt"></b></a><a class="btn k" href="#sortiment">Sortiment ansehen</a></div>
 </div></header>
@@ -201,7 +203,7 @@ footer nav{display:flex;gap:20px}
 </section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Lindenblatt Hofladen &amp; Feinkost · Demo-Seite · Fotos: Beispielbilder (Unsplash)</span><nav><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav></div></footer>
+<footer><div class="wrap"><svg class="seal" viewBox="0 0 120 120" width="96" height="96" role="img" aria-label="Logo Lindenblatt"><defs><path id="ring-hofladen-lindenblatt" d="M60 60 m-45 0 a45 45 0 1 1 90 0 a45 45 0 1 1 -90 0"/></defs><circle cx="60" cy="60" r="59" fill="#3f5a2e"/><circle cx="60" cy="60" r="57" fill="none" stroke="#efeee9" stroke-width="1.2"/><circle cx="60" cy="60" r="36" fill="none" stroke="#efeee9" stroke-width=".9"/><text font-family="'Plus Jakarta Sans',sans-serif" font-size="9.6" font-weight="700" fill="#efeee9" letter-spacing="1"><textPath href="#ring-hofladen-lindenblatt" textLength="278" lengthAdjust="spacing">HOFLADEN &amp; FEINKOST · OCKENHEIM · </textPath></text><g transform="translate(37 34) scale(.72)"><path d="M32 7 C44 15 54 27 51 39 C48.5 49 39 52 32 45.5 C25 52 15.5 49 13 39 C10 27 20 15 32 7Z" fill="#efeee9"/><path d="M32 45 V12 M32 22 L41 17 M32 22 L23 17 M32 31 L44 26 M32 31 L20 26 M32 39 L42 36 M32 39 L22 36" stroke="#3f5a2e" stroke-width="1.4" stroke-linecap="round" fill="none"/><path d="M32 45.5 V58" stroke="#efeee9" stroke-width="2.6" stroke-linecap="round"/></g></svg><span>© 2026 Lindenblatt Hofladen &amp; Feinkost · Demo-Seite · Fotos: Beispielbilder (Unsplash)</span><nav><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav></div></footer>
 <div class="dock"><a class="btn l" href="tel:+496725000002"><svg><use href="#i-call"/></svg>Anrufen</a><a class="btn k" href="#sortiment" id="dockBtn">Sortiment</a></div>
 
 <script src="../../assets/order-kit.js?v=3"></script>
