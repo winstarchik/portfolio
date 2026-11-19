@@ -16,7 +16,10 @@
   .tbar .go:hover{background:#f0f0f0;color:#111}
   .tbar.hide{opacity:0;transform:translateX(-50%) translateY(16px);pointer-events:none}
   @media(max-width:860px){.tbar.has-dock{bottom:90px}.tbar a,.tbar button{padding:10px 13px;font-size:13px}}
-  .tspot{position:fixed;z-index:80;border-radius:14px;box-shadow:0 0 0 9999px rgba(10,10,10,.62),0 0 0 3px #ffd23f;pointer-events:none;transition:all .3s ease}
+  .tshield{position:fixed;inset:0;z-index:79}
+  .tspot{position:fixed;z-index:80;border-radius:14px;box-shadow:0 0 0 9999px rgba(10,10,10,.62),0 0 0 3px #ffd23f;pointer-events:none;transition:left .25s ease,top .25s ease,width .25s ease,height .25s ease,opacity .2s}
+  @media(max-width:699px){.tcard{padding:16px 16px 14px!important}.tcard h4{font-size:17px!important;margin:4px 0 6px!important}.tcard p{font-size:14.5px}}
+  @media(prefers-reduced-motion:reduce){.tspot{transition:none}}
   .tcard{position:fixed;z-index:81;width:min(360px,calc(100vw - 24px));background:#fff;color:#151515;border-radius:18px;padding:20px 20px 16px;box-shadow:0 24px 60px rgba(0,0,0,.35);font:15px/1.55 "Inter",system-ui,sans-serif}
   .tcard .tn{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a8a8a}
   .tcard h4{font-size:19px;line-height:1.25;margin:6px 0 8px;font-weight:700}
@@ -40,13 +43,41 @@
   addEventListener('scroll', () => { const y = scrollY; if (!document.querySelector('.tcard')) { bar.classList.toggle('hide', y > last + 4 && y > 300); if (y < last - 4) bar.classList.remove('hide'); } last = y; }, { passive: true });
 
   if (!steps.length) return;
-  let i = 0, spot, card;
+  let i = 0, spot, card, shield, timer;
+  const mobile = () => innerWidth < 700;
+  // Höhe einer klebenden/festen Kopfzeile oben, damit nichts darunter verschwindet
+  function topInset() {
+    let h = 0;
+    document.querySelectorAll('header, .top, .info').forEach(e => {
+      const cs = getComputedStyle(e), r = e.getBoundingClientRect();
+      if ((cs.position === 'sticky' || cs.position === 'fixed') && r.top <= 1 && r.bottom > 0) h = Math.max(h, r.bottom);
+    });
+    return h;
+  }
+  // Unterkante des sichtbaren Bereichs (auf dem Handy liegt die Karte unten)
+  const bottomLimit = () => innerHeight - card.offsetHeight - 24;   // unten bleibt immer Platz für die Karte
+  function scrollTo(el) {
+    const r = el.getBoundingClientRect(), top = topInset() + 12, avail = bottomLimit() - top;
+    let y = scrollY + r.top - top;                               // hohe Elemente: Anfang zeigen
+    if (r.height < avail) y -= (avail - r.height) / 2;           // kleine: mittig im freien Bereich
+    scrollTo.target = Math.max(0, Math.round(y));
+    window.scrollTo({ top: scrollTo.target, behavior: 'smooth' });
+  }
   function place() {
-    const s = steps[i], el = document.querySelector(s.sel), r = el.getBoundingClientRect(), pad = 8;
-    Object.assign(spot.style, { left: r.left - pad + 'px', top: r.top - pad + 'px', width: r.width + pad * 2 + 'px', height: r.height + pad * 2 + 'px' });
-    const ch = card.offsetHeight, below = r.bottom + pad + 14, above = r.top - pad - 14 - ch;
-    let top = below + ch < innerHeight - 10 ? below : above > 10 ? above : innerHeight - ch - 12;
-    let left = Math.min(Math.max(12, r.left), innerWidth - card.offsetWidth - 12);
+    if (!card) return;
+    const el = document.querySelector(steps[i].sel), r = el.getBoundingClientRect(), pad = 8;
+    if (mobile()) Object.assign(card.style, { left: '12px', right: '12px', top: 'auto', bottom: 'calc(12px + env(safe-area-inset-bottom))', width: 'auto' });
+    else card.style.right = card.style.bottom = 'auto';
+    // Hervorhebung auf den sichtbaren Bereich begrenzen
+    const minT = topInset() + 4, maxB = bottomLimit() + 10;
+    const L = Math.max(6, r.left - pad), R = Math.min(innerWidth - 6, r.right + pad);
+    const T = Math.max(minT, r.top - pad), B = Math.min(maxB, r.bottom + pad);
+    const visible = B - T > 24 && R - L > 24;
+    Object.assign(spot.style, { left: L + 'px', top: T + 'px', width: Math.max(0, R - L) + 'px', height: Math.max(0, B - T) + 'px', opacity: visible ? 1 : 0 });
+    if (mobile()) return;
+    const ch = card.offsetHeight, cw = card.offsetWidth;
+    const top = Math.min(B + 14, innerHeight - ch - 12);           // direkt unter dem Bereich, nie darüber
+    const left = Math.min(Math.max(12, L), innerWidth - cw - 12);
     Object.assign(card.style, { top: top + 'px', left: left + 'px' });
   }
   function show() {
@@ -57,20 +88,22 @@
     card.querySelector('.tnext').onclick = () => { if (i < steps.length - 1) { i++; show(); } else end(); };
     const p = card.querySelector('.tprev'); if (p) p.onclick = () => { i--; show(); };
     const e = card.querySelector('.tend'); if (e) e.onclick = end;
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    setTimeout(place, 420); place();
+    place(); scrollTo(el);
+    clearTimeout(timer); timer = setTimeout(place, 700);
     card.querySelector('.tnext').focus({ preventScroll: true });
   }
   function start() {
     i = 0; bar.classList.add('hide');
+    shield = document.createElement('div'); shield.className = 'tshield';
     spot = document.createElement('div'); spot.className = 'tspot';
     card = document.createElement('div'); card.className = 'tcard'; card.setAttribute('role', 'dialog'); card.setAttribute('aria-live', 'polite');
-    document.body.append(spot, card);
+    document.body.append(shield, spot, card);
     addEventListener('resize', place); addEventListener('scroll', place, { passive: true });
     show();
   }
   function end() {
-    spot.remove(); card.remove(); bar.classList.remove('hide');
+    clearTimeout(timer);
+    shield.remove(); spot.remove(); card.remove(); card = null; bar.classList.remove('hide');
     removeEventListener('resize', place); removeEventListener('scroll', place);
   }
   document.getElementById('tStart').onclick = start;
